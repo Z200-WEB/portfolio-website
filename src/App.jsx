@@ -1,8 +1,9 @@
 import React, { useState, useEffect, useRef, Suspense } from 'react';
-import { Github, Linkedin, Mail, ExternalLink, Globe, MapPin, Sparkles, ArrowRight, Heart, Lightbulb, Bot, User, AlertCircle, CheckCircle, Box } from 'lucide-react';
+import { Github, Linkedin, Mail, ExternalLink, Globe, MapPin, Sparkles, ArrowRight, Heart, Lightbulb, Bot, User, AlertCircle, CheckCircle, Box, CreditCard } from 'lucide-react';
 
 // Lazy load Three.js visualization for better performance
 const TechVisualization = React.lazy(() => import('./components/TechVisualization'));
+const DraggableNameCard = React.lazy(() => import('./components/DraggableNameCard'));
 
 // ============================================
 // TRANSLATIONS
@@ -80,7 +81,7 @@ const translations = {
           problem: 'Needed a clear and professional way to present skills, projects, and technical interests for job hunting.',
           solution: 'A modern, responsive portfolio website designed to showcase business-oriented projects and technical skills.',
           tags: ['React 18', 'Three.js', 'Tailwind', 'Vite'],
-          github: 'https://github.com/Z200-WEB/my-protofilo.git'
+          github: 'https://github.com/Z200-WEB/my-portofilo.git'
         }
       ],
       view: 'View on GitHub',
@@ -165,7 +166,7 @@ const translations = {
           problem: '就職活動に向けて、スキルや制作物を分かりやすく伝える手段が必要だった。',
           solution: '業務系プロジェクトや思考プロセスを整理して伝えるモダンなポートフォリオサイト。',
           tags: ['React 18', 'Three.js', 'Tailwind', 'Vite'],
-          github: 'https://github.com/Z200-WEB/my-protofilo.git'
+          github: 'https://github.com/Z200-WEB/my-portofilo.git'
         }
       ],
       view: 'GitHubで見る',
@@ -950,6 +951,48 @@ const BentoSection = ({ t }) => {
 };
 
 // ============================================
+// DRAGGABLE NAME CARD SECTION
+// Purpose: Interactive 3D business card with drag animation
+// ============================================
+const NameCardSection = ({ lang }) => {
+  return (
+    <section className="relative py-24 px-6">
+      <div className="max-w-4xl mx-auto">
+        <ScrollReveal>
+          <div className="text-center mb-8">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-cyan-500/10 border border-cyan-500/20 mb-4">
+              <CreditCard size={16} className="text-cyan-400" />
+              <span className="text-sm text-cyan-300">Interactive Card</span>
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">
+              {lang === 'jp' ? 'デジタル名刺' : 'Digital Business Card'}
+            </h2>
+            <p className="text-gray-500 max-w-xl mx-auto">
+              {lang === 'jp'
+                ? 'Three.jsで作成したインタラクティブな3D名刺です。ドラッグして動かしてみてください。'
+                : 'An interactive 3D business card built with Three.js. Try dragging it around!'}
+            </p>
+          </div>
+        </ScrollReveal>
+
+        <ScrollReveal delay={200}>
+          <Suspense fallback={
+            <div className="w-full h-[300px] flex items-center justify-center bg-black/40 rounded-2xl">
+              <div className="flex flex-col items-center gap-3">
+                <div className="w-8 h-8 border-2 border-cyan-500 border-t-transparent rounded-full animate-spin" />
+                <span className="text-gray-500 text-sm">Loading 3D card...</span>
+              </div>
+            </div>
+          }>
+            <DraggableNameCard lang={lang} />
+          </Suspense>
+        </ScrollReveal>
+      </div>
+    </section>
+  );
+};
+
+// ============================================
 // 3D VISUALIZATION SECTION
 // Purpose: Demonstrate 3D understanding with business context
 // ============================================
@@ -1186,6 +1229,7 @@ export default function App() {
 
       <Navigation lang={lang} setLang={setLang} t={t} scrolled={scrolled} />
       <HeroSection t={t} scrollY={scrollY} />
+      <NameCardSection lang={lang} />
       <BentoSection t={t} />
       <VisualizationSection t={t} lang={lang} />
       <ProjectsSection t={t} />
