@@ -80,7 +80,7 @@ const translations = {
           problem: 'Needed a clear and professional way to present skills, projects, and technical interests for job hunting.',
           solution: 'A modern, responsive portfolio website designed to showcase business-oriented projects and technical skills.',
           tags: ['React 18', 'Three.js', 'Tailwind', 'Vite'],
-          github: 'https://github.com/Z200-WEB/my-protofilo.git'
+          github: 'https://github.com/Z200-WEB/my-portofilo.git'
         }
       ],
       view: 'View on GitHub',
@@ -165,7 +165,7 @@ const translations = {
           problem: '就職活動に向けて、スキルや制作物を分かりやすく伝える手段が必要だった。',
           solution: '業務系プロジェクトや思考プロセスを整理して伝えるモダンなポートフォリオサイト。',
           tags: ['React 18', 'Three.js', 'Tailwind', 'Vite'],
-          github: 'https://github.com/Z200-WEB/my-protofilo.git'
+          github: 'https://github.com/Z200-WEB/my-portofilo.git'
         }
       ],
       view: 'GitHubで見る',
