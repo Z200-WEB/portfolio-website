@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, Suspense } from 'react';
+import React, { useState, useEffect, useRef, Suspense } from 'react'; 
 import { Github, Linkedin, Mail, ExternalLink, Globe, MapPin, Sparkles, ArrowRight, Heart, Lightbulb, Bot, User, AlertCircle, CheckCircle, Box } from 'lucide-react';
 
 // Lazy load Three.js visualization for better performance
