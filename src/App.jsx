@@ -767,36 +767,25 @@ const HeroSection = ({ t, scrollY }) => {
           {/* 3D Card with Photo */}
           <ScrollReveal delay={400} className="flex justify-center lg:justify-end pt-20 lg:pt-0">
             <Card3D badge={true} title="ZAWE ZAW HTET" subtitle="IT Student • Japan">
-              <div className="relative w-64 h-72 sm:w-72 sm:h-80 rounded-lg overflow-hidden">
-                {/* Photo with gradient background */}
-                <div className="absolute inset-0 bg-gradient-to-br from-purple-900/60 via-black to-cyan-900/60" />
-
-                <img
-                  src={`${import.meta.env.BASE_URL}images/hero.png`}
-                  alt="ZAWE ZAW HTET"
-                  className="relative z-10 w-full h-full object-cover object-top"
-                  onError={(e) => {
-                    e.target.style.display = 'none';
-                  }}
-                />
-
-                {/* Fallback avatar if no image */}
-                <div className="absolute inset-0 flex items-center justify-center z-0">
-                  <div className="text-6xl">👨‍💻</div>
+                            <div className="relative flex items-center justify-center py-6">
+                {/* Modern circular avatar with glow ring */}
+                <div className="absolute w-56 h-56 sm:w-64 sm:h-64 rounded-full bg-gradient-to-tr from-purple-600 via-cyan-400 to-purple-600 animate-spin" style={{animationDuration:'6s', filter:'blur(1px)'}} />
+                <div className="relative w-52 h-52 sm:w-60 sm:h-60 rounded-full bg-gradient-to-br from-purple-700 to-cyan-700 p-[3px] z-10 shadow-[0_0_30px_rgba(139,92,246,0.5)]">
+                  <div className="w-full h-full rounded-full overflow-hidden bg-gray-900">
+                    <img
+                      src={`${import.meta.env.BASE_URL}images/hero.png`}
+                      alt="ZAWE ZAW HTET"
+                      className="w-full h-full object-cover object-top"
+                      onError={(e) => { e.target.style.display = 'none'; e.target.nextElementSibling.style.display = 'flex'; }}
+                    />
+                    <div className="w-full h-full flex items-center justify-center text-6xl" style={{display:'none'}}>👨‍💻</div>
+                  </div>
                 </div>
-
-                {/* Overlay effects */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent z-20" />
-
-                {/* Corner decorations */}
-                <div className="absolute top-3 left-3 w-8 h-8 border-l-2 border-t-2 border-purple-500/50 z-30" />
-                <div className="absolute bottom-3 right-3 w-8 h-8 border-r-2 border-b-2 border-cyan-500/50 z-30" />
-
                 {/* Badge overlay */}
-                <div className="absolute bottom-4 left-4 right-4 z-30">
-                  <div className="bg-black/60 backdrop-blur-sm rounded-lg p-3 border border-white/10">
-                    <p className="text-white font-bold text-sm">Cloud & Business Systems</p>
-                    <p className="text-gray-400 text-xs mt-1">IT Student</p>
+                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 z-30">
+                  <div className="bg-black/60 backdrop-blur-sm rounded-lg px-4 py-2 border border-white/10 whitespace-nowrap">
+                    <p className="text-white font-bold text-sm">Cloud &amp; Business Systems</p>
+                    <p className="text-gray-400 text-xs mt-0.5 text-center">IT Student</p>
                   </div>
                 </div>
               </div>
@@ -831,18 +820,20 @@ const BentoSection = ({ t }) => {
                 {/* 3D Card Photo */}
                 <div className="relative lg:w-2/5 p-4 flex items-center justify-center bg-gradient-to-br from-purple-900/20 via-black to-cyan-900/20">
                   <Card3D title="ABOUT" subtitle="Student • Creator">
-                    <div className="relative w-44 h-52 rounded-lg overflow-hidden">
-                      <div className="absolute inset-0 bg-gradient-to-br from-cyan-900/60 via-black to-purple-900/60" />
-                      <img
-                        src={`${import.meta.env.BASE_URL}images/about.png`}
-                        alt="ZAWE ZAW HTET"
-                        className="relative z-10 w-full h-full object-cover object-center"
-                        onError={(e) => { e.target.style.display = 'none'; }}
-                      />
-                      <div className="absolute inset-0 flex items-center justify-center z-0">
-                        <div className="text-5xl">👨‍💻</div>
+                                        <div className="relative flex items-center justify-center py-4">
+                      {/* Modern circular avatar with glow ring */}
+                      <div className="absolute w-40 h-40 rounded-full bg-gradient-to-tr from-purple-600 via-cyan-400 to-purple-600 animate-spin" style={{animationDuration:'6s', filter:'blur(1px)'}} />
+                      <div className="relative w-36 h-36 rounded-full bg-gradient-to-br from-purple-700 to-cyan-700 p-[3px] z-10 shadow-[0_0_20px_rgba(139,92,246,0.5)]">
+                        <div className="w-full h-full rounded-full overflow-hidden bg-gray-900">
+                          <img
+                            src={`${import.meta.env.BASE_URL}images/about.png`}
+                            alt="ZAWE ZAW HTET"
+                            className="w-full h-full object-cover object-top"
+                            onError={(e) => { e.target.style.display = 'none'; e.target.nextElementSibling.style.display = 'flex'; }}
+                          />
+                          <div className="w-full h-full flex items-center justify-center text-5xl" style={{display:'none'}}>👨‍💻</div>
+                        </div>
                       </div>
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent z-20" />
                     </div>
                   </Card3D>
                 </div>
