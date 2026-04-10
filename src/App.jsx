@@ -1,41 +1,37 @@
-import React, { useState, useEffect, useRef, Suspense } from 'react';  
+import React, { useState, useEffect, useRef, Suspense } from 'react';
 import { Github, Linkedin, Mail, ExternalLink, Globe, MapPin, Sparkles, ArrowRight, Heart, Lightbulb, Bot, User, AlertCircle, CheckCircle, Box } from 'lucide-react';
 
-// Lazy load Three.js visualization for better performance
 const TechVisualization = React.lazy(() => import('./components/TechVisualization'));
 
-// ============================================
-// TRANSLATIONS
-// ============================================
 const translations = {
   en: {
     nav: { work: 'Work', about: 'About', contact: 'Contact' },
     hero: {
       greeting: 'Hello, I am',
       name: 'ZAWE ZAW HTET',
-      role: 'IT Student',
-      description: 'Focused on cloud technologies, AI integration, and practical business systems.',
+      role: 'AI Engineer',
+      description: 'Building intelligent, user-centered products through React x TypeScript x AI/LLM.',
       cta: 'View My Work',
       scroll: 'Scroll to discover'
     },
     about: {
       title: 'About Me',
-      bio: "I am an IT student with a strong interest in cloud technologies and AI. I focus on how AI can be practically applied to business systems like CRM and cloud-based applications. I value understanding how systems work rather than just using tools, learning through hands-on project development. I am motivated to grow as an engineer in a cloud-oriented environment where I can continuously learn and contribute through real-world development.",
+      bio: "I'm an IT student based in Japan, passionate about building AI-powered products that solve real problems. I believe in ownership-driven development — I don't just write code, I identify real problems, design AI-integrated solutions, and ship complete products end-to-end.",
       status: 'Available for opportunities',
       location: 'Japan'
     },
     workflow: {
       title: 'How I Think',
       steps: [
-        'Understand business requirements',
-        'Design simple and scalable data structures',
-        'Build clear UI for non-technical users',
-        'Improve through iteration and feedback'
+        'Identify real user problems worth solving',
+        'Design AI-integrated architecture from the ground up',
+        'Build intuitive UI that makes AI accessible to everyone',
+        'Deploy, iterate and improve based on real feedback'
       ]
     },
     aiUsage: {
-      title: 'How I Use AI',
-      description: 'AI is my development accelerator. I review, modify, and understand all generated code before using it.'
+      title: 'How I Build with AI',
+      description: "I don't just use AI tools — I build them. RAG pipelines, LLM integrations, prompt engineering, and AI-powered automations are core to my work."
     },
     outsideCode: {
       title: 'Outside of Code',
@@ -48,49 +44,82 @@ const translations = {
     tech: { title: 'Tech Stack' },
     visualization: {
       title: 'Technology Ecosystem',
-      subtitle: 'How my skills connect to deliver business value'
+      subtitle: 'How my skills connect to deliver intelligent products'
     },
     projects: {
       title: 'Projects',
-      subtitle: 'Real-world problem solving through code',
+      subtitle: 'AI-powered and real-world products',
       items: [
+        {
+          title: 'DocuChat AI',
+          problem: 'Reading and extracting insights from long PDF documents is slow and tedious.',
+          solution: 'RAG-powered document chat using Gemini 2.5 — ask any question about your PDF in natural language.',
+          tags: ['Next.js 14', 'TypeScript', 'RAG', 'Gemini 2.5', 'Tailwind'],
+          github: 'https://github.com/Z200-WEB/docuchat-ai',
+          ai: true
+        },
+        {
+          title: 'TikTok AI Strategist',
+          problem: 'Creators waste hours manually analyzing TikTok analytics to plan content strategy.',
+          solution: 'Chrome Extension + FastAPI + OpenAI GPT-4o that auto-analyzes analytics and generates a data-driven content strategy.',
+          tags: ['Python', 'FastAPI', 'OpenAI GPT-4o', 'Chrome Extension'],
+          github: 'https://github.com/Z200-WEB/tiktok-ai-strategist',
+          ai: true
+        },
+        {
+          title: 'Team Task Board',
+          problem: 'Teams struggle with scattered tasks, poor visibility, and no workflow tracking.',
+          solution: 'Kintone-inspired drag-and-drop task board with WCAG accessibility, unit tests, and CI/CD.',
+          tags: ['React', 'TypeScript', 'Vite', 'Vitest', 'GitHub Actions'],
+          github: 'https://github.com/Z200-WEB/team-task-board',
+          ai: false
+        },
         {
           title: 'CRM Dashboard',
           problem: 'Customer data scattered across spreadsheets, making sales tracking difficult.',
-          solution: 'Salesforce-inspired dashboard to centralize customer and sales management.',
-          tags: ['JavaScript', 'CSS', 'HTML'],
-          github: 'https://github.com/Z200-WEB/CRM_DSHBOARD.git'
+          solution: 'Salesforce-inspired dashboard to centralize customer and sales management for non-technical users.',
+          tags: ['React', 'Tailwind CSS', 'JavaScript'],
+          github: 'https://github.com/Z200-WEB/crm-dashboard-react',
+          ai: false
         },
         {
-          title: 'Restaurant Ordering System',
-          problem: 'Manual order-taking causing delays and errors in busy restaurants.',
-          solution: 'Table-based digital ordering system to streamline operations.',
-          tags: ['PHP', 'CSS', 'JavaScript'],
-          github: 'https://github.com/Z200-WEB/class-project.git'
+          title: 'Clash Strategy — Multiplayer',
+          problem: 'Building a real-time game with fair, server-authoritative logic is extremely complex.',
+          solution: 'Real-time 1v1 strategy game with WebSocket, server-authoritative architecture, and Three.js rendering.',
+          tags: ['WebSocket', 'Three.js', 'JavaScript', 'GitHub Actions'],
+          github: 'https://github.com/Z200-WEB/clash-strategy-multiplayer-game',
+          ai: false
         },
         {
-          title: 'Support Case Manager',
-          problem: 'Customer inquiries scattered, making status tracking difficult.',
-          solution: 'Centralized dashboard to manage priorities and case status.',
-          tags: ['Tailwind', 'React', 'JavaScript'],
-          github: 'https://github.com/Z200-WEB/case-management-system.git'
+          title: 'SmartOrder Restaurant System',
+          problem: 'Manual order-taking causes delays and errors in busy restaurants.',
+          solution: 'QR code-based self-ordering system. PHP 8.2 + MySQL + Docker. Live deployed, bilingual (EN/JP).',
+          tags: ['PHP 8.2', 'MySQL', 'Docker', 'Railway'],
+          github: 'https://github.com/Z200-WEB/smartorder-restaurant-system',
+          ai: false
+        },
+        {
+          title: 'Case Management System',
+          problem: 'Customer inquiries scattered, making priority and status tracking difficult.',
+          solution: 'Salesforce Service Cloud-inspired case management with CRUD, filtering, and bilingual support.',
+          tags: ['React 18', 'Vite', 'Tailwind CSS', 'JavaScript'],
+          github: 'https://github.com/Z200-WEB/case-management-system',
+          ai: false
         },
         {
           title: 'My Portfolio',
-          problem: 'Needed a clear and professional way to present skills, projects, and technical interests for job hunting.',
-          solution: 'A modern, responsive portfolio website designed to showcase business-oriented projects and technical skills.',
-          tags: ['React 18', 'Three.js', 'Tailwind', 'Vite'],
-          github: 'https://github.com/Z200-WEB/my-portofilo.git'
+          problem: 'Needed a modern, professional way to present AI and frontend projects.',
+          solution: 'A responsive portfolio with 3D effects, bilingual support, and animated tech showcase.',
+          tags: ['React 18', 'Three.js', 'Tailwind', 'Vite', 'GitHub Pages'],
+          github: 'https://github.com/Z200-WEB/portfolio-website',
+          ai: false
         }
       ],
       view: 'View on GitHub',
       problemLabel: 'Problem',
       solutionLabel: 'Solution'
     },
-    connect: {
-      title: "Let's Connect",
-      subtitle: 'Open for collaborations and new opportunities'
-    },
+    connect: { title: "Let's Connect", subtitle: 'Open for collaborations and new opportunities' },
     footer: 'Crafted with passion & code'
   },
   jp: {
@@ -98,29 +127,29 @@ const translations = {
     hero: {
       greeting: 'こんにちは、',
       name: 'ズェーゾーテッ',
-      role: 'IT学生',
-      description: 'クラウド技術、AI活用、実務システムに注力しています。',
+      role: 'AIエンジニア',
+      description: 'React x TypeScript x AI/LLMで、インテリジェントなプロダクトを構築しています。',
       cta: '作品を見る',
       scroll: 'スクロールして発見'
     },
     about: {
       title: '私について',
-      bio: 'IT分野を学ぶ学生として、クラウド技術やAIに強い関心を持っています。AIをCRMやクラウド型システムなど、実際のビジネス現場でどのように活用できるかに興味を持ち、学習を進めています。ただツールを使うだけでなく、「仕組みを理解すること」を大切にしており、実際に手を動かしながらプロジェクトベースで学ぶことを意識しています。クラウド技術を強みとする環境で、実務を通じて成長し、価値を提供できるエンジニアを目指しています。',
+      bio: '日本を拠点とするITの学生です。AIを活用した実用的なプロダクト開発に情熱を持っています。コードを書くだけでなく、本質的な問題を発見し、AIを統合したソリューションを設計し、完成品をリリースするオーナーシップ主導の開発を信条としています。',
       status: '機会を探しています',
       location: '日本'
     },
     workflow: {
       title: '私の考え方',
       steps: [
-        '業務要件を理解する',
-        'シンプルで拡張性のあるデータ設計',
-        '非エンジニアにも分かりやすいUIを構築',
-        'フィードバックをもとに改善を繰り返す'
+        '解決すべき本質的な課題を特定する',
+        'AIを統合したアーキテクチャを設計する',
+        'AIを誰もが使えるUIを構築する',
+        'デプロイし、フィードバックをもとに改善する'
       ]
     },
     aiUsage: {
-      title: 'AIの活用方法',
-      description: 'AIは開発を加速するためのツールです。生成されたコードは必ず確認・修正し、理解した上で使用しています。'
+      title: 'AIでの開発方法',
+      description: 'AIツールを使うだけでなく、構築します。RAGパイプライン、LLM統合、プロンプトエンジニアリング、AI自動化が私の中心的な作業です。'
     },
     outsideCode: {
       title: 'コード以外の時間',
@@ -131,55 +160,28 @@ const translations = {
       ]
     },
     tech: { title: 'テックスタック' },
-    visualization: {
-      title: 'テクノロジーエコシステム',
-      subtitle: 'スキルがどのようにビジネス価値につながるか'
-    },
+    visualization: { title: 'テクノロジーエコシステム', subtitle: 'スキルがインテリジェントなプロダクトにどう繋がるか' },
     projects: {
       title: 'プロジェクト',
-      subtitle: 'コードで課題を解決する',
+      subtitle: 'AIと実世界の課題解決',
       items: [
-        {
-          title: 'CRMダッシュボード',
-          problem: '顧客データがスプレッドシートに分散し、営業状況の把握が困難。',
-          solution: '顧客・営業管理を一元化するSalesforce風ダッシュボード。',
-          tags: ['JavaScript', 'CSS', 'HTML'],
-          github: 'https://github.com/Z200-WEB/CRM_DSHBOARD.git'
-        },
-        {
-          title: 'レストラン注文システム',
-          problem: '手動の注文受付による遅延とミスの発生。',
-          solution: '業務効率化を目的としたテーブル注文システム。',
-          tags: ['PHP', 'CSS', 'JavaScript'],
-          github: 'https://github.com/Z200-WEB/class-project.git'
-        },
-        {
-          title: 'サポートケース管理',
-          problem: '問い合わせ管理が分散し、状況把握が困難。',
-          solution: '対応状況や優先度を一元管理するダッシュボード。',
-          tags: ['Tailwind', 'React', 'JavaScript'],
-          github: 'https://github.com/Z200-WEB/case-management-system.git'
-        },
-        {
-          title: 'ポートフォリオサイト',
-          problem: '就職活動に向けて、スキルや制作物を分かりやすく伝える手段が必要だった。',
-          solution: '業務系プロジェクトや思考プロセスを整理して伝えるモダンなポートフォリオサイト。',
-          tags: ['React 18', 'Three.js', 'Tailwind', 'Vite'],
-          github: 'https://github.com/Z200-WEB/my-portofilo.git'
-        }
+        { title: 'DocuChat AI', problem: '長いPDFの読解と情報抽出は時間がかかる。', solution: 'Gemini 2.5を使ったRAGによるドキュメントチャット。', tags: ['Next.js 14', 'TypeScript', 'RAG', 'Gemini 2.5', 'Tailwind'], github: 'https://github.com/Z200-WEB/docuchat-ai', ai: true },
+        { title: 'TikTokAI戦略家', problem: 'クリエイターはTikTok分析に多くの時間を費やしている。', solution: 'Chrome拡張+FastAPI+GPT-4oで分析を自動化し戦略を生成。', tags: ['Python', 'FastAPI', 'OpenAI GPT-4o', 'Chrome拡張機能'], github: 'https://github.com/Z200-WEB/tiktok-ai-strategist', ai: true },
+        { title: 'チームタスクボード', problem: 'タスクが分散し、進捗の可視化が困難。', solution: 'ドラッグ&ドロップ対応のKintone風タスクボード。', tags: ['React', 'TypeScript', 'Vite', 'Vitest', 'GitHub Actions'], github: 'https://github.com/Z200-WEB/team-task-board', ai: false },
+        { title: 'CRMダッシュボード', problem: '顧客データがスプレッドシートに分散。', solution: '非エンジニアでも使えるSalesforce風ダッシュボード。', tags: ['React', 'Tailwind CSS', 'JavaScript'], github: 'https://github.com/Z200-WEB/crm-dashboard-react', ai: false },
+        { title: 'クラッシュ戦略ゲーム', problem: 'サーバー主導のリアルタイムゲームの実装は非常に複雑。', solution: 'WebSocketとThree.jsを使用したリアルタイム1v1戦略ゲーム。', tags: ['WebSocket', 'Three.js', 'JavaScript', 'GitHub Actions'], github: 'https://github.com/Z200-WEB/clash-strategy-multiplayer-game', ai: false },
+        { title: 'スマートオーダーシステム', problem: '手動の注文受付による遅延とミス。', solution: 'QRコードベースのセルフ注文システム。ライブデプロイ済み。', tags: ['PHP 8.2', 'MySQL', 'Docker', 'Railway'], github: 'https://github.com/Z200-WEB/smartorder-restaurant-system', ai: false },
+        { title: 'ケース管理システム', problem: '問い合わせ管理が分散し、優先度把握が困難。', solution: 'Salesforce Service Cloud風のケース管理アプリ。', tags: ['React 18', 'Vite', 'Tailwind CSS', 'JavaScript'], github: 'https://github.com/Z200-WEB/case-management-system', ai: false },
+        { title: 'ポートフォリオ', problem: 'AIとフロントエンドのプロジェクトをモダンに紹介する手段が必要。', solution: '3Dエフェクト、バイリンガル対応のレスポンシブポートフォリオ。', tags: ['React 18', 'Three.js', 'Tailwind', 'Vite', 'GitHub Pages'], github: 'https://github.com/Z200-WEB/portfolio-website', ai: false }
       ],
       view: 'GitHubで見る',
       problemLabel: '課題',
       solutionLabel: '解決策'
     },
-    connect: {
-      title: 'つながりましょう',
-      subtitle: 'コラボレーションと新しい機会を求めています'
-    },
+    connect: { title: 'つながりましょう', subtitle: 'コラボレーションと新しい機会を求めています' },
     footer: '情熱とコードで作られました'
   }
 };
-
 // ============================================
 // 3D CARD COMPONENT (Like Lanyard Badge)
 // ============================================
@@ -227,7 +229,7 @@ const Card3D = ({ children, className = '', badge = false, title = '', subtitle 
               <div className="absolute inset-0 flex items-center justify-center">
                 <span className="text-[8px] text-gray-400 font-bold tracking-widest whitespace-nowrap"
                   style={{ writingMode: 'vertical-rl', textOrientation: 'mixed', transform: 'rotate(180deg)' }}>
-                  IT STUDENT • JAPAN
+                  AI ENGINEER • JAPAN
                 </span>
               </div>
             </div>
@@ -461,15 +463,12 @@ const techStack = [
   { name: 'Tailwind', Icon: TechIcons.Tailwind },
   { name: 'Git', Icon: TechIcons.Git },
   { name: 'Docker', Icon: TechIcons.Docker },
-  { name: 'Firebase', Icon: TechIcons.Firebase },
   { name: 'Figma', Icon: TechIcons.Figma },
   { name: 'Vercel', Icon: TechIcons.Vercel },
   { name: 'HTML5', Icon: TechIcons.HTML5 },
   { name: 'CSS3', Icon: TechIcons.CSS3 },
-  { name: 'Flutter', Icon: TechIcons.Flutter },
-  { name: 'MongoDB', Icon: TechIcons.MongoDB },
-  { name: 'GraphQL', Icon: TechIcons.GraphQL },
   { name: 'Three.js', Icon: TechIcons.ThreeJS },
+  { name: 'Docker', Icon: TechIcons.Docker },
 ];
 
 // Tech Card Component
@@ -766,7 +765,7 @@ const HeroSection = ({ t, scrollY }) => {
 
           {/* 3D Card with Photo */}
           <ScrollReveal delay={400} className="flex justify-center lg:justify-end pt-20 lg:pt-0">
-            <Card3D badge={true} title="ZAWE ZAW HTET" subtitle="IT Student • Japan">
+            <Card3D badge={true} title="ZAWE ZAW HTET" subtitle="AI Engineer • Japan">
                             <div className="relative flex items-center justify-center py-6">
                 {/* Modern circular avatar with glow ring */}
                 <div className="absolute w-56 h-56 sm:w-64 sm:h-64 rounded-full bg-gradient-to-tr from-purple-600 via-cyan-400 to-purple-600 animate-spin" style={{animationDuration:'6s', filter:'blur(1px)'}} />
@@ -785,7 +784,7 @@ const HeroSection = ({ t, scrollY }) => {
                 <div className="absolute bottom-0 left-1/2 -translate-x-1/2 z-30">
                   <div className="bg-black/60 backdrop-blur-sm rounded-lg px-4 py-2 border border-white/10 whitespace-nowrap">
                     <p className="text-white font-bold text-sm">Cloud &amp; Business Systems</p>
-                    <p className="text-gray-400 text-xs mt-0.5 text-center">IT Student</p>
+                    <p className="text-gray-400 text-xs mt-0.5 text-center">AI Engineer</p>
                   </div>
                 </div>
               </div>
@@ -1027,6 +1026,13 @@ const ProjectsSection = ({ t }) => {
                 <div className="absolute top-5 left-5 p-2.5 rounded-full bg-black/30 backdrop-blur-sm border border-white/20 group-hover:bg-white/20 group-hover:scale-110 transition-all duration-300">
                   <Github size={18} className="text-white" />
                 </div>
+                {/* AI badge */}
+                {project.ai && (
+                  <div className="absolute top-5 right-14 flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-purple-500/30 backdrop-blur-sm border border-purple-400/40">
+                    <Bot size={12} className="text-purple-300" />
+                    <span className="text-[10px] text-purple-300 font-semibold tracking-wider">AI</span>
+                  </div>
+                )}
 
                 {/* Content */}
                 <div className="absolute inset-0 p-6 md:p-8 flex flex-col justify-end">
@@ -1184,7 +1190,7 @@ export default function App() {
 
       <footer className="py-8 text-center border-t border-white/[0.05]">
         <p className="text-gray-600 text-sm flex items-center justify-center gap-2">
-          © 2025 ZAWE ZAW HTET. {t.footer}
+          © 2026 ZAWE ZAW HTET. {t.footer}
           <Heart size={14} className="text-pink-500 animate-pulse" />
         </p>
       </footer>
