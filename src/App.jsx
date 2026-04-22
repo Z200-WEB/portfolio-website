@@ -775,7 +775,9 @@ const BentoSection = ({ t }) => {
     <section id="about" className="relative py-32 px-6">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
-                {/* Content */}
+                        <ScrollReveal delay={0} className="md:col-span-2 lg:col-span-2 lg:row-span-2">
+                                  <BentoCard className="h-full p-0 overflow-hidden" hover={false}>
+                                              {/* Content */}
                 <div className="flex-1 p-6 lg:p-8 flex flex-col justify-center">
                   <div className="flex items-center gap-3 mb-4">
                     <div className="p-2.5 rounded-xl bg-gradient-to-br from-purple-500/20 to-pink-500/20 border border-purple-500/20">
