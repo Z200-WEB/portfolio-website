@@ -69,7 +69,7 @@ const translations = {
           ai: true
         },
       ],
-                            view: 'View on GitHub',
+    view: 'View on GitHub',
       problemLabel: 'Problem',
       solutionLabel: 'Solution'
     },
