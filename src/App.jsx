@@ -56,39 +56,8 @@ const translations = {
           solution: 'RAG-powered document chat using Gemini 2.5 — ask any question about your PDF in natural language.',
           tags: ['Next.js 14', 'TypeScript', 'RAG', 'Gemini 2.5', 'Tailwind'],
           github: 'https://github.com/Z200-WEB/docuchat-ai',
+                  demo: 'https://docuchat-ai-xi.vercel.app/',
           ai: true
-        },
-        {
-          title: 'TikTok AI Strategist',
-          problem: 'Creators waste hours manually analyzing TikTok analytics to plan content strategy.',
-          solution: 'Chrome Extension + FastAPI + OpenAI GPT-4o that auto-analyzes analytics and generates a data-driven content strategy.',
-          tags: ['Python', 'FastAPI', 'OpenAI GPT-4o', 'Chrome Extension'],
-          github: 'https://github.com/Z200-WEB/tiktok-ai-strategist',
-          ai: true
-        },
-        {
-          title: 'Team Task Board',
-          problem: 'Teams struggle with scattered tasks, poor visibility, and no workflow tracking.',
-          solution: 'Kintone-inspired drag-and-drop task board with WCAG accessibility, unit tests, and CI/CD.',
-          tags: ['React', 'TypeScript', 'Vite', 'Vitest', 'GitHub Actions'],
-          github: 'https://github.com/Z200-WEB/team-task-board',
-          ai: false
-        },
-        {
-          title: 'CRM Dashboard',
-          problem: 'Customer data scattered across spreadsheets, making sales tracking difficult.',
-          solution: 'Salesforce-inspired dashboard to centralize customer and sales management for non-technical users.',
-          tags: ['React', 'Tailwind CSS', 'JavaScript'],
-          github: 'https://github.com/Z200-WEB/crm-dashboard-react',
-          ai: false
-        },
-        {
-          title: 'Clash Strategy — Multiplayer',
-          problem: 'Building a real-time game with fair, server-authoritative logic is extremely complex.',
-          solution: 'Real-time 1v1 strategy game with WebSocket, server-authoritative architecture, and Three.js rendering.',
-          tags: ['WebSocket', 'Three.js', 'JavaScript', 'GitHub Actions'],
-          github: 'https://github.com/Z200-WEB/clash-strategy-multiplayer-game',
-          ai: false
         },
         {
           title: 'SmartOrder Restaurant System',
@@ -96,26 +65,11 @@ const translations = {
           solution: 'QR code-based self-ordering system. PHP 8.2 + MySQL + Docker. Live deployed, bilingual (EN/JP).',
           tags: ['PHP 8.2', 'MySQL', 'Docker', 'Railway'],
           github: 'https://github.com/Z200-WEB/smartorder-restaurant-system',
-          ai: false
+                            demo: 'https://smartorder-restaurant-system.onrender.com/index.php?tableNo=1',
+          ai: true
         },
-        {
-          title: 'Case Management System',
-          problem: 'Customer inquiries scattered, making priority and status tracking difficult.',
-          solution: 'Salesforce Service Cloud-inspired case management with CRUD, filtering, and bilingual support.',
-          tags: ['React 18', 'Vite', 'Tailwind CSS', 'JavaScript'],
-          github: 'https://github.com/Z200-WEB/case-management-system',
-          ai: false
-        },
-        {
-          title: 'My Portfolio',
-          problem: 'Needed a modern, professional way to present AI and frontend projects.',
-          solution: 'A responsive portfolio with 3D effects, bilingual support, and animated tech showcase.',
-          tags: ['React 18', 'Three.js', 'Tailwind', 'Vite', 'GitHub Pages'],
-          github: 'https://github.com/Z200-WEB/portfolio-website',
-          ai: false
-        }
       ],
-      view: 'View on GitHub',
+                            view: 'View on GitHub',
       problemLabel: 'Problem',
       solutionLabel: 'Solution'
     },
@@ -134,7 +88,7 @@ const translations = {
     },
     about: {
       title: '私について',
-      bio: '日本を拠点とするITの学生です。AIを活用した実用的なプロダクト開発に情熱を持っています。コードを書くだけでなく、本質的な問題を発見し、AIを統合したソリューションを設計し、完成品をリリースするオーナーシップ主導の開発を信条としています。',
+            bio: '日本を拠点に、ReactとAI/LLMを組み合わせたWebプロダクトを設計・開発しているエンジニアです。アイデアの発案からデプロイまで、一人で完結させるオーナーシップ主導の開発スタイルで活動しています。',
       status: '機会を探しています',
       location: '日本'
     },
@@ -165,15 +119,9 @@ const translations = {
       title: 'プロジェクト',
       subtitle: 'AIと実世界の課題解決',
       items: [
-        { title: 'DocuChat AI', problem: '長いPDFの読解と情報抽出は時間がかかる。', solution: 'Gemini 2.5を使ったRAGによるドキュメントチャット。', tags: ['Next.js 14', 'TypeScript', 'RAG', 'Gemini 2.5', 'Tailwind'], github: 'https://github.com/Z200-WEB/docuchat-ai', ai: true },
-        { title: 'TikTokAI戦略家', problem: 'クリエイターはTikTok分析に多くの時間を費やしている。', solution: 'Chrome拡張+FastAPI+GPT-4oで分析を自動化し戦略を生成。', tags: ['Python', 'FastAPI', 'OpenAI GPT-4o', 'Chrome拡張機能'], github: 'https://github.com/Z200-WEB/tiktok-ai-strategist', ai: true },
-        { title: 'チームタスクボード', problem: 'タスクが分散し、進捗の可視化が困難。', solution: 'ドラッグ&ドロップ対応のKintone風タスクボード。', tags: ['React', 'TypeScript', 'Vite', 'Vitest', 'GitHub Actions'], github: 'https://github.com/Z200-WEB/team-task-board', ai: false },
-        { title: 'CRMダッシュボード', problem: '顧客データがスプレッドシートに分散。', solution: '非エンジニアでも使えるSalesforce風ダッシュボード。', tags: ['React', 'Tailwind CSS', 'JavaScript'], github: 'https://github.com/Z200-WEB/crm-dashboard-react', ai: false },
-        { title: 'クラッシュ戦略ゲーム', problem: 'サーバー主導のリアルタイムゲームの実装は非常に複雑。', solution: 'WebSocketとThree.jsを使用したリアルタイム1v1戦略ゲーム。', tags: ['WebSocket', 'Three.js', 'JavaScript', 'GitHub Actions'], github: 'https://github.com/Z200-WEB/clash-strategy-multiplayer-game', ai: false },
-        { title: 'スマートオーダーシステム', problem: '手動の注文受付による遅延とミス。', solution: 'QRコードベースのセルフ注文システム。ライブデプロイ済み。', tags: ['PHP 8.2', 'MySQL', 'Docker', 'Railway'], github: 'https://github.com/Z200-WEB/smartorder-restaurant-system', ai: false },
-        { title: 'ケース管理システム', problem: '問い合わせ管理が分散し、優先度把握が困難。', solution: 'Salesforce Service Cloud風のケース管理アプリ。', tags: ['React 18', 'Vite', 'Tailwind CSS', 'JavaScript'], github: 'https://github.com/Z200-WEB/case-management-system', ai: false },
-        { title: 'ポートフォリオ', problem: 'AIとフロントエンドのプロジェクトをモダンに紹介する手段が必要。', solution: '3Dエフェクト、バイリンガル対応のレスポンシブポートフォリオ。', tags: ['React 18', 'Three.js', 'Tailwind', 'Vite', 'GitHub Pages'], github: 'https://github.com/Z200-WEB/portfolio-website', ai: false }
-      ],
+        { title: 'DocuChat AI', problem: '長いPDFの読解と情報抽出は時間がかかる。', solution: 'Gemini 2.5を使ったRAGによるドキュメントチャット。', tags: ['Next.js 14', 'TypeScript', 'RAG', 'Gemini 2.5', 'Tailwind'], github: 'https://github.com/Z200-WEB/docuchat-ai', demo: 'https://docuchat-ai-xi.vercel.app/', ai: true },
+           { title: 'スマートオーダーシステム', problem: '手動の注文受付による遅延とミス。', solution: 'QRコードベースのセルフ注文システム。ライブデプロイ済み。', tags: ['PHP 8.2', 'MySQL', 'Docker', 'Railway'], github: 'https://github.com/Z200-WEB/smartorder-restaurant-system', demo: 'https://smartorder-restaurant-system.onrender.com/index.php?tableNo=1', ai: true },
+         ],
       view: 'GitHubで見る',
       problemLabel: '課題',
       solutionLabel: '解決策'
@@ -827,31 +775,6 @@ const BentoSection = ({ t }) => {
     <section id="about" className="relative py-32 px-6">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
-          {/* About Card with 3D Photo Card */}
-          <ScrollReveal delay={0} className="md:col-span-2 lg:col-span-2 lg:row-span-2">
-            <BentoCard className="h-full p-0 overflow-hidden" hover={false}>
-              <div className="flex flex-col lg:flex-row h-full">
-                {/* 3D Card Photo */}
-                <div className="relative lg:w-2/5 p-4 flex items-center justify-center bg-gradient-to-br from-purple-900/20 via-black to-cyan-900/20">
-                  <Card3D title="ABOUT" subtitle="AI Engineer • Builder">
-                                        <div className="relative flex items-center justify-center py-4">
-                      {/* Modern circular avatar with glow ring */}
-                      <div className="absolute w-40 h-40 rounded-full bg-gradient-to-tr from-purple-600 via-cyan-400 to-purple-600 animate-spin" style={{animationDuration:'6s', filter:'blur(1px)'}} />
-                      <div className="relative w-36 h-36 rounded-full bg-gradient-to-br from-purple-700 to-cyan-700 p-[3px] z-10 shadow-[0_0_20px_rgba(139,92,246,0.5)]">
-                        <div className="w-full h-full rounded-full overflow-hidden bg-gray-900">
-                          <img
-                            src={`${import.meta.env.BASE_URL}images/about.png`}
-                            alt="ZAWE ZAW HTET"
-                            className="w-full h-full object-cover object-top"
-                            onError={(e) => { e.target.style.display = 'none'; e.target.nextElementSibling.style.display = 'flex'; }}
-                          />
-                          <div className="w-full h-full flex items-center justify-center text-5xl" style={{display:'none'}}>👨‍💻</div>
-                        </div>
-                      </div>
-                    </div>
-                  </Card3D>
-                </div>
-
                 {/* Content */}
                 <div className="flex-1 p-6 lg:p-8 flex flex-col justify-center">
                   <div className="flex items-center gap-3 mb-4">
