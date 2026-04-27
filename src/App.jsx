@@ -690,7 +690,7 @@ const HeroSection = ({ t, scrollY }) => {
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#030303]" />
 
       <div className="relative z-10 w-full max-w-7xl mx-auto px-6 py-20">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 gap-12 items-center max-w-2xl">
           {/* Text Content */}
           <div style={{ transform: `translateY(${scrollY * 0.15}px)`, opacity: 1 - scrollY / 1200 }}>
             <ScrollReveal delay={0}>
@@ -726,33 +726,7 @@ const HeroSection = ({ t, scrollY }) => {
             </ScrollReveal>
           </div>
 
-          {/* 3D Card with Photo */}
-          <ScrollReveal delay={400} className="flex justify-center lg:justify-end pt-20 lg:pt-0">
-            <Card3D badge={true} title="ZAWE ZAW HTET" subtitle="AI Engineer • Japan">
-                            <div className="relative flex items-center justify-center py-6">
-                {/* Modern circular avatar with glow ring */}
-                <div className="absolute w-56 h-56 sm:w-64 sm:h-64 rounded-full bg-gradient-to-tr from-purple-600 via-cyan-400 to-purple-600 animate-spin" style={{animationDuration:'6s', filter:'blur(1px)'}} />
-                <div className="relative w-52 h-52 sm:w-60 sm:h-60 rounded-full bg-gradient-to-br from-purple-700 to-cyan-700 p-[3px] z-10 shadow-[0_0_30px_rgba(139,92,246,0.5)]">
-                  <div className="w-full h-full rounded-full overflow-hidden bg-gray-900">
-                    <img
-                      src={`${import.meta.env.BASE_URL}images/hero.png`}
-                      alt="ZAWE ZAW HTET"
-                      className="w-full h-full object-cover object-top"
-                      onError={(e) => { e.target.style.display = 'none'; e.target.nextElementSibling.style.display = 'flex'; }}
-                    />
-                    <div className="w-full h-full flex items-center justify-center text-6xl" style={{display:'none'}}>👨‍💻</div>
-                  </div>
-                </div>
-                {/* Badge overlay */}
-                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 z-30">
-                  <div className="bg-black/60 backdrop-blur-sm rounded-lg px-4 py-2 border border-white/10 whitespace-nowrap">
-                    <p className="text-white font-bold text-sm">Cloud &amp; Business Systems</p>
-                    <p className="text-gray-400 text-xs mt-0.5 text-center">AI Engineer</p>
-                  </div>
-                </div>
-              </div>
-            </Card3D>
-          </ScrollReveal>
+
         </div>
       </div>
 
