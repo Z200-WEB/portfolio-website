@@ -761,8 +761,7 @@ const BentoSection = ({ t }) => {
                   </div>
                   <p className="text-gray-400 text-sm leading-relaxed">{t.about.bio}</p>
                 </div>
-              </div>
-            </BentoCard>
+                                  </BentoCard>
           </ScrollReveal>
 
           {/* Status Card */}
