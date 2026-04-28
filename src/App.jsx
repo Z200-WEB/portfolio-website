@@ -46,7 +46,6 @@ const translations = {
       english: { name: 'English', level: 'Business Level' },
       myanmar: { name: 'Myanmar', level: 'Native' }
     },
-    tech: { title: 'Tech Stack' },
     visualization: {
       title: 'Technology Ecosystem',
       subtitle: 'How my skills connect to deliver intelligent products'
@@ -124,7 +123,6 @@ const translations = {
       english: { name: 'English', level: 'ビジネスレベル' },
       myanmar: { name: 'မြန်မာဘာသာ', level: 'ネイティブ' }
     },
-    tech: { title: 'テックスタック' },
     visualization: { title: 'テクノロジーエコシステム', subtitle: 'スキルがインテリジェントなプロダクトにどう繋がるか' },
     projects: {
       title: 'プロジェクト',
@@ -420,104 +418,6 @@ const TechIcons = {
       <path fill="#F5792A" d="M12.51 13.214c.046-.8.438-1.506 1.03-2.006a3.424 3.424 0 012.212-.79c.85 0 1.631.3 2.211.79.592.5.983 1.206 1.028 2.005.045.823-.285 1.586-.865 2.153a3.389 3.389 0 01-2.374.938 3.393 3.393 0 01-2.376-.938c-.58-.567-.91-1.33-.865-2.152"/>
     </svg>
   ),
-};
-
-// ============================================
-// 3D ICON CLOUD COMPONENT
-// ============================================
-const techStack = [
-  { name: 'React', Icon: TechIcons.React },
-  { name: 'TypeScript', Icon: TechIcons.TypeScript },
-  { name: 'JavaScript', Icon: TechIcons.JavaScript },
-  { name: 'Next.js', Icon: TechIcons.NextJS },
-  { name: 'Node.js', Icon: TechIcons.NodeJS },
-  { name: 'Python', Icon: TechIcons.Python },
-  { name: 'Tailwind', Icon: TechIcons.Tailwind },
-  { name: 'Git', Icon: TechIcons.Git },
-  { name: 'Docker', Icon: TechIcons.Docker },
-  { name: 'Figma', Icon: TechIcons.Figma },
-  { name: 'Vercel', Icon: TechIcons.Vercel },
-  { name: 'Railway', Icon: TechIcons.Railway },
-  { name: 'GitHub Actions', Icon: TechIcons.GitHubActions },
-  { name: 'HTML5', Icon: TechIcons.HTML5 },
-  { name: 'CSS3', Icon: TechIcons.CSS3 },
-  { name: 'Three.js', Icon: TechIcons.ThreeJS },
-  { name: 'Docker', Icon: TechIcons.Docker },
-];
-
-// Tech Card Component
-const TechCard = ({ item }) => {
-  const [isHovered, setIsHovered] = useState(false);
-
-  return (
-    <div
-      className="group relative flex-shrink-0"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
-      <div className={`
-        relative flex items-center gap-3 px-5 py-3 rounded-2xl
-        bg-white/[0.03] border border-white/[0.08]
-        hover:bg-white/[0.08] hover:border-purple-500/30
-        transition-all duration-300 cursor-default
-        ${isHovered ? 'scale-105 shadow-[0_0_30px_rgba(139,92,246,0.2)]' : ''}
-      `}>
-        <div className="w-10 h-10 flex items-center justify-center rounded-xl bg-white/[0.05]">
-          <item.Icon />
-        </div>
-        <span className="text-white font-medium text-sm whitespace-nowrap">{item.name}</span>
-
-        {/* Glow effect */}
-        <div className={`absolute inset-0 rounded-2xl bg-gradient-to-r from-purple-500/10 to-cyan-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10 blur-xl`} />
-      </div>
-    </div>
-  );
-};
-
-// Infinite Marquee Component
-const TechMarquee = () => {
-  const row1 = techStack.slice(0, 9);
-  const row2 = techStack.slice(9);
-
-  return (
-    <div className="relative w-full overflow-hidden py-6">
-      {/* Fade edges */}
-      <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-black to-transparent z-10 pointer-events-none" />
-      <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-black to-transparent z-10 pointer-events-none" />
-
-      {/* Row 1 - scroll left */}
-      <div className="flex gap-4 mb-4 animate-marquee hover:[animation-play-state:paused]">
-        {[...row1, ...row1, ...row1].map((item, i) => (
-          <TechCard key={`row1-${i}`} item={item} />
-        ))}
-      </div>
-
-      {/* Row 2 - scroll right */}
-      <div className="flex gap-4 animate-marquee-reverse hover:[animation-play-state:paused]">
-        {[...row2, ...row2, ...row2, ...row2].map((item, i) => (
-          <TechCard key={`row2-${i}`} item={item} />
-        ))}
-      </div>
-
-      {/* Marquee animation styles */}
-      <style>{`
-        @keyframes marquee {
-          0% { transform: translateX(0); }
-          100% { transform: translateX(-33.33%); }
-        }
-        @keyframes marquee-reverse {
-          0% { transform: translateX(-33.33%); }
-          100% { transform: translateX(0); }
-        }
-        .animate-marquee {
-          animation: marquee 25s linear infinite;
-        }
-        .animate-marquee-reverse {
-          animation: marquee-reverse 20s linear infinite;
-        }
-      `}</style>
-    </div>
-  );
 };
 
 // ============================================
@@ -851,13 +751,7 @@ const BentoSection = ({ t }) => {
             </BentoCard>
           </ScrollReveal>
 
-          {/* Tech Stack Card */}
-          <ScrollReveal delay={500} className="md:col-span-2 lg:col-span-4">
-            <BentoCard className="p-6 h-full overflow-hidden" hover={false}>
-              <h3 className="text-xl font-semibold text-white mb-2">{t.tech.title}</h3>
-              <TechMarquee />
-            </BentoCard>
-          </ScrollReveal>
+  
         </div>
       </div>
     </section>
