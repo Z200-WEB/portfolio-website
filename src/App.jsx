@@ -15,17 +15,18 @@ const translations = {
     },
     about: {
       title: 'About Me',
-      bio: "I'm an AI Engineer based in Japan, passionate about building AI-powered products that solve real problems. I believe in ownership-driven development — I don't just write code, I identify real problems, design AI-integrated solutions, and ship complete products end-to-end.",
+      bio: "I built an AI document chat system (RAG + Gemini 2.5) and a full restaurant ordering system — both live and deployed. I handle everything from design to deployment on Vercel and Render. Based in Japan, building products that actually work.",
       status: 'Available for opportunities',
-      location: 'Japan'
+      location: 'Japan',
+      skills: ['AI / RAG', 'Full Stack', 'React', 'Deployment']
     },
     workflow: {
-      title: 'How I Think',
+      title: 'How I Work',
       steps: [
-        'Identify real user problems worth solving',
-        'Design AI-integrated architecture from the ground up',
-        'Build intuitive UI that makes AI accessible to everyone',
-        'Deploy, iterate and improve based on real feedback'
+        { icon: '🎯', title: 'Find the real problem', desc: 'Skip the noise. Focus on what actually needs fixing.' },
+        { icon: '⚡', title: 'Build fast, build real', desc: 'Prototype quickly. Ship something usable, then improve it.' },
+        { icon: '🧩', title: 'Keep the UI simple', desc: 'If a user needs instructions, the design failed.' },
+        { icon: '🔁', title: 'Improve from real feedback', desc: 'Real users, real data — not assumptions.' }
       ]
     },
     aiUsage: {
@@ -99,17 +100,18 @@ const translations = {
     },
     about: {
       title: '私について',
-            bio: '日本を拠点に、ReactとAI/LLMを組み合わせたWebプロダクトを設計・開発しているエンジニアです。アイデアの発案からデプロイまで、一人で完結させるオーナーシップ主導の開発スタイルで活動しています。',
+      bio: 'RAG + Gemini 2.5を使ったAIドキュメントチャットシステムと、レストラン注文システムを開発・デプロイしました。設計からVercel・Renderへのデプロイまで一人で担当。実際に動くプロダクトを作ることにフォーカスしています。',
       status: '機会を探しています',
-      location: '日本'
+      location: '日本',
+      skills: ['AI / RAG', 'フルスタック', 'React', 'デプロイ']
     },
     workflow: {
-      title: '私の考え方',
+      title: '開発スタイル',
       steps: [
-        '解決すべき本質的な課題を特定する',
-        'AIを統合したアーキテクチャを設計する',
-        'AIを誰もが使えるUIを構築する',
-        'デプロイし、フィードバックをもとに改善する'
+        { icon: '🎯', title: '本質的な課題を見つける', desc: '余計なものを排除し、本当に解決すべき問題に集中する。' },
+        { icon: '⚡', title: '速く、リアルに作る', desc: '素早くプロトタイプを作り、使えるものをリリースする。' },
+        { icon: '🧩', title: 'UIはシンプルに', desc: '説明が必要なUIはデザインの失敗。直感的に使えることが大事。' },
+        { icon: '🔁', title: 'リアルなフィードバックで改善', desc: '仮定ではなく、実際のユーザーとデータをもとに改善する。' }
       ]
     },
     aiUsage: {
@@ -687,102 +689,117 @@ const HeroSection = ({ t, scrollY }) => {
 // ============================================
 const BentoSection = ({ t }) => {
   return (
-    <section id="about" className="relative py-32 px-6">
-      <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
-                        <ScrollReveal delay={0} className="md:col-span-2 lg:col-span-2 lg:row-span-2">
-                                  <BentoCard className="h-full p-0 overflow-hidden" hover={false}>
-                                              {/* Content */}
-                <div className="flex-1 p-6 lg:p-8 flex flex-col justify-center">
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="p-2.5 rounded-xl bg-gradient-to-br from-purple-500/20 to-pink-500/20 border border-purple-500/20">
-                      <User className="text-purple-400" size={20} />
-                    </div>
-                    <h2 className="text-xl font-semibold text-white">{t.about.title}</h2>
-                  </div>
-                  <p className="text-gray-400 text-sm leading-relaxed">{t.about.bio}</p>
-                </div>
-                                  </BentoCard>
-          </ScrollReveal>
+    <section id="about" className="relative py-24 px-6">
+      <div className="max-w-5xl mx-auto">
 
-
-          {/* Language Skills Card */}
-          <ScrollReveal delay={100} className="md:col-span-2 lg:col-span-2">
-            <BentoCard className="p-6 h-full min-h-[160px]">
-              <div className="h-full flex flex-col">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="p-2 rounded-lg bg-gradient-to-br from-purple-500/20 to-cyan-500/20 border border-purple-500/20">
-                    <Globe className="text-purple-400" size={18} />
-                  </div>
-                  <h3 className="text-sm font-semibold text-white">{t.languages?.title || '言語スキル'}</h3>
+        {/* ── About Me + Skills ── */}
+        <ScrollReveal delay={0}>
+          <div className="rounded-2xl border border-white/[0.08] bg-white/[0.03] backdrop-blur-xl p-8 mb-5 hover:border-purple-500/30 transition-all duration-500 hover:shadow-[0_0_40px_rgba(139,92,246,0.08)]">
+            <div className="flex flex-col md:flex-row gap-6 items-start">
+              {/* Avatar */}
+              <div className="flex-shrink-0">
+                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-purple-500/30 to-cyan-500/30 border border-purple-500/30 flex items-center justify-center text-2xl font-bold text-white">
+                  ZZ
                 </div>
-                <div className="flex flex-col gap-3">
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-2">
-                      <span className="text-lg">🇯🇵</span>
-                      <span className="text-white text-sm font-medium">{t.languages?.japanese?.name || '日本語'}</span>
-                    </div>
-                    <span className="text-xs px-2 py-1 rounded-full bg-blue-500/20 text-blue-300 border border-blue-500/30">{t.languages?.japanese?.level || 'ビジネスレベル'}</span>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-2">
-                      <span className="text-lg">🇬🇧</span>
-                      <span className="text-white text-sm font-medium">{t.languages?.english?.name || 'English'}</span>
-                    </div>
-                    <span className="text-xs px-2 py-1 rounded-full bg-green-500/20 text-green-300 border border-green-500/30">{t.languages?.english?.level || 'Business Level'}</span>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-2">
-                      <span className="text-lg">🇲🇲</span>
-                      <span className="text-white text-sm font-medium">{t.languages?.myanmar?.name || 'မြန်မာဘာသာ'}</span>
-                    </div>
-                    <span className="text-xs px-2 py-1 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/30">{t.languages?.myanmar?.level || 'ネイティブ'}</span>
-                  </div>
+                <div className="flex items-center gap-1.5 mt-2">
+                  <div className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
+                  <span className="text-[10px] text-green-400 font-medium">{t.about.status}</span>
                 </div>
               </div>
-            </BentoCard>
+
+              {/* Bio */}
+              <div className="flex-1">
+                <div className="flex items-center gap-2 mb-3">
+                  <h2 className="text-lg font-bold text-white">{t.about.title}</h2>
+                  <span className="text-xs text-gray-500 flex items-center gap-1">
+                    <MapPin size={11} /> {t.about.location}
+                  </span>
+                </div>
+                <p className="text-gray-300 text-sm leading-relaxed mb-4">{t.about.bio}</p>
+
+                {/* Skill tags */}
+                <div className="flex flex-wrap gap-2">
+                  {t.about.skills.map((skill, i) => (
+                    <span key={i} className="px-3 py-1 text-xs font-semibold rounded-full bg-purple-500/15 text-purple-300 border border-purple-500/25 hover:bg-purple-500/25 transition-colors">
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </ScrollReveal>
+
+        {/* ── Two column: Language + How I Work ── */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-5">
+
+          {/* Language Skills */}
+          <ScrollReveal delay={100}>
+            <div className="rounded-2xl border border-white/[0.08] bg-white/[0.03] backdrop-blur-xl p-6 h-full hover:border-cyan-500/30 transition-all duration-500">
+              <div className="flex items-center gap-2 mb-5">
+                <div className="p-2 rounded-lg bg-cyan-500/10 border border-cyan-500/20">
+                  <Globe className="text-cyan-400" size={16} />
+                </div>
+                <h3 className="text-sm font-semibold text-white">{t.languages.title}</h3>
+              </div>
+              <div className="space-y-3">
+                {[
+                  { flag: '🇯🇵', ...t.languages.japanese, color: 'bg-blue-500/20 text-blue-300 border-blue-500/30' },
+                  { flag: '🇬🇧', ...t.languages.english, color: 'bg-green-500/20 text-green-300 border-green-500/30' },
+                  { flag: '🇲🇲', ...t.languages.myanmar, color: 'bg-amber-500/20 text-amber-300 border-amber-500/30' },
+                ].map((lang, i) => (
+                  <div key={i} className="flex items-center justify-between">
+                    <div className="flex items-center gap-2">
+                      <span className="text-base">{lang.flag}</span>
+                      <span className="text-white text-sm font-medium">{lang.name}</span>
+                    </div>
+                    <span className={`text-xs px-2.5 py-0.5 rounded-full border ${lang.color}`}>{lang.level}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
           </ScrollReveal>
 
-          {/* How I Think (Workflow) Card */}
-          <ScrollReveal delay={300} className="md:col-span-2">
-            <BentoCard className="p-6 h-full" hover={false}>
-              <div className="flex items-center gap-3 mb-5">
+          {/* How I Work */}
+          <ScrollReveal delay={150}>
+            <div className="rounded-2xl border border-white/[0.08] bg-white/[0.03] backdrop-blur-xl p-6 h-full hover:border-amber-500/30 transition-all duration-500">
+              <div className="flex items-center gap-2 mb-5">
                 <div className="p-2 rounded-lg bg-amber-500/10 border border-amber-500/20">
-                  <Lightbulb className="text-amber-400" size={18} />
+                  <Lightbulb className="text-amber-400" size={16} />
                 </div>
-                <h3 className="text-lg font-semibold text-white">{t.workflow.title}</h3>
+                <h3 className="text-sm font-semibold text-white">{t.workflow.title}</h3>
               </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div className="space-y-3">
                 {t.workflow.steps.map((step, i) => (
-                  <div key={i} className="flex items-start gap-3 p-3 rounded-xl bg-white/[0.02] border border-white/[0.05]">
-                    <div className="flex-shrink-0 w-6 h-6 rounded-full bg-gradient-to-br from-purple-500/30 to-cyan-500/30 flex items-center justify-center text-xs font-bold text-white">
-                      {i + 1}
+                  <div key={i} className="flex items-start gap-3 p-2.5 rounded-xl bg-white/[0.02] border border-white/[0.04] hover:bg-white/[0.05] hover:border-amber-500/20 transition-all duration-300 group">
+                    <span className="text-base mt-0.5 flex-shrink-0">{step.icon}</span>
+                    <div>
+                      <p className="text-white text-xs font-semibold leading-snug group-hover:text-amber-300 transition-colors">{step.title}</p>
+                      <p className="text-gray-500 text-[11px] mt-0.5 leading-relaxed">{step.desc}</p>
                     </div>
-                    <p className="text-gray-300 text-sm leading-relaxed">{step}</p>
                   </div>
                 ))}
               </div>
-            </BentoCard>
+            </div>
           </ScrollReveal>
-
-          {/* Outside of Code Card */}
-          <ScrollReveal delay={400} className="md:col-span-2 lg:col-span-4">
-            <BentoCard className="p-6 h-full" hover={false}>
-              <h3 className="text-lg font-semibold text-white mb-4">{t.outsideCode.title}</h3>
-              <div className="grid grid-cols-3 gap-4">
-                {t.outsideCode.items.map((item, i) => (
-                  <div key={i} className="text-center p-4 rounded-xl bg-white/[0.02] border border-white/[0.05] hover:border-purple-500/30 transition-colors">
-                    <div className="text-3xl mb-2">{item.icon}</div>
-                    <p className="text-white text-base font-medium mb-1">{item.label}</p>
-                    <p className="text-gray-500 text-sm">{item.desc}</p>
-                  </div>
-                ))}
-              </div>
-            </BentoCard>
-          </ScrollReveal>
-
-  
         </div>
+
+        {/* ── Outside of Code ── */}
+        <ScrollReveal delay={200}>
+          <div className="rounded-2xl border border-white/[0.08] bg-white/[0.03] backdrop-blur-xl p-6">
+            <h3 className="text-sm font-semibold text-white mb-4">{t.outsideCode.title}</h3>
+            <div className="grid grid-cols-3 gap-3">
+              {t.outsideCode.items.map((item, i) => (
+                <div key={i} className="text-center p-4 rounded-xl bg-white/[0.02] border border-white/[0.04] hover:border-purple-500/30 hover:bg-white/[0.05] transition-all duration-300 group cursor-default">
+                  <div className="text-2xl mb-2 group-hover:scale-110 transition-transform duration-300">{item.icon}</div>
+                  <p className="text-white text-sm font-semibold mb-0.5">{item.label}</p>
+                  <p className="text-gray-600 text-[11px]">{item.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </ScrollReveal>
+
       </div>
     </section>
   );
@@ -995,50 +1012,142 @@ const WorkExperienceSection = ({ lang }) => {
 // ============================================
 const EducationSection = ({ lang }) => {
   const isJP = lang === 'jp';
+
   const educations = [
-    { icon: '🎓', schoolJP: '大手前大学', schoolEN: 'Otemae University', deptJP: '現代社会学部 現代社会学科', deptEN: 'Faculty of Contemporary Social Studies', period: '2025年4月 - 2027年3月（見込）', periodEN: 'Apr 2025 - Mar 2027 (Expected)', descJP: ['ITと語学を中心に学習','AI・Webエンジニアリングを実践'], descEN: ['Focusing on IT and language studies','Practicing AI and web engineering'], current: true, gradient: 'from-purple-600/20 to-pink-600/20', border: 'border-purple-500/30', badgeColor: 'bg-green-500/20 border-green-500/30 text-green-400', badgeTextJP: '在学中', badgeTextEN: 'Current', country: '🇯🇵' },
-    { icon: '📖', schoolJP: '大手前短期大学', schoolEN: 'Otemae Junior College', deptJP: '', deptEN: '', period: '2023年4月 - 2025年3月', periodEN: 'Apr 2023 - Mar 2025', descJP: ['短期大学にて専門的な知識を習得'], descEN: ['Acquired specialized knowledge at junior college'], current: false, gradient: 'from-blue-600/20 to-cyan-600/20', border: 'border-blue-500/30', badgeColor: 'bg-blue-500/20 border-blue-500/30 text-blue-400', badgeTextJP: '卒業', badgeTextEN: 'Graduated', country: '🇯🇵' },
-    { icon: '💻', schoolJP: 'Government Technical Institute', schoolEN: 'Government Technical Institute', deptJP: 'ミャンマー', deptEN: 'Myanmar', period: '2016年4月 - 2019年3月', periodEN: 'Apr 2016 - Mar 2019', descJP: ['技術系専門教育を受ける'], descEN: ['Technical and vocational education'], current: false, gradient: 'from-cyan-600/20 to-teal-600/20', border: 'border-cyan-500/30', badgeColor: 'bg-gray-500/20 border-gray-500/30 text-gray-400', badgeTextJP: '卒業', badgeTextEN: 'Graduated', country: '🇲🇲' },
-    { icon: '📘', schoolJP: 'BEHS No.16', schoolEN: 'BEHS No.16', deptJP: 'ミャンマー・マンダレー', deptEN: 'Mandalay, Myanmar', period: '2013年4月 - 2016年3月', periodEN: 'Apr 2013 - Mar 2016', descJP: ['高等学校課程を修了'], descEN: ['Completed high school curriculum'], current: false, gradient: 'from-amber-600/20 to-orange-600/20', border: 'border-amber-500/30', badgeColor: 'bg-gray-500/20 border-gray-500/30 text-gray-400', badgeTextJP: '卒業', badgeTextEN: 'Graduated', country: '🇲🇲' },
-    { icon: '📝', schoolJP: 'BEHS No.10', schoolEN: 'BEHS No.10', deptJP: 'ミャンマー・マンダレー', deptEN: 'Mandalay, Myanmar', period: '2010年 - 2013年', periodEN: '2010 - 2013', descJP: ['中学校課程を修了'], descEN: ['Completed middle school curriculum'], current: false, gradient: 'from-rose-600/20 to-pink-600/20', border: 'border-rose-500/30', badgeColor: 'bg-gray-500/20 border-gray-500/30 text-gray-400', badgeTextJP: '卒業', badgeTextEN: 'Graduated', country: '🇲🇲' },
+    {
+      icon: '🎓',
+      schoolJP: '大手前大学',
+      schoolEN: 'Otemae University',
+      deptJP: '現代社会学部 現代社会学科',
+      deptEN: 'Faculty of Contemporary Social Studies',
+      period: '2025.4 – 2027.3 (Expected)',
+      periodEN: '2025.4 – 2027.3 (Expected)',
+      descJP: 'ITと語学を中心に学習。AI・Webエンジニアリングを実践。',
+      descEN: 'Studying IT and language. Practicing AI and web engineering.',
+      current: true,
+      gradient: 'from-purple-600/15 to-pink-600/15',
+      border: 'border-purple-500/30',
+      badgeColor: 'bg-green-500/20 border-green-500/30 text-green-400',
+      badgeTextJP: '在学中', badgeTextEN: 'Current',
+      country: '🇯🇵'
+    },
+    {
+      icon: '📖',
+      schoolJP: '大手前短期大学',
+      schoolEN: 'Otemae Junior College',
+      deptJP: '', deptEN: '',
+      period: '2023.4 – 2025.3',
+      periodEN: '2023.4 – 2025.3',
+      descJP: '短期大学にて専門的な知識を習得。',
+      descEN: 'Acquired specialized knowledge at junior college.',
+      current: false,
+      gradient: 'from-blue-600/15 to-cyan-600/15',
+      border: 'border-blue-500/30',
+      badgeColor: 'bg-blue-500/20 border-blue-500/30 text-blue-400',
+      badgeTextJP: '卒業', badgeTextEN: 'Graduated',
+      country: '🇯🇵'
+    },
+    {
+      icon: '💻',
+      schoolJP: 'Government Technical Institute',
+      schoolEN: 'Government Technical Institute',
+      deptJP: 'ミャンマー', deptEN: 'Myanmar',
+      period: '2016.4 – 2019.3',
+      periodEN: '2016.4 – 2019.3',
+      descJP: '技術系専門教育。',
+      descEN: 'Technical and vocational education.',
+      current: false,
+      gradient: 'from-cyan-600/15 to-teal-600/15',
+      border: 'border-cyan-500/30',
+      badgeColor: 'bg-gray-500/20 border-gray-500/30 text-gray-400',
+      badgeTextJP: '卒業', badgeTextEN: 'Graduated',
+      country: '🇲🇲'
+    },
+    {
+      icon: '📘',
+      schoolJP: 'BEHS No.16',
+      schoolEN: 'BEHS No.16',
+      deptJP: 'ミャンマー・マンダレー', deptEN: 'Mandalay, Myanmar',
+      period: '2013.4 – 2016.3',
+      periodEN: '2013.4 – 2016.3',
+      descJP: '高等学校課程修了。',
+      descEN: 'Completed high school curriculum.',
+      current: false,
+      gradient: 'from-amber-600/15 to-orange-600/15',
+      border: 'border-amber-500/30',
+      badgeColor: 'bg-gray-500/20 border-gray-500/30 text-gray-400',
+      badgeTextJP: '卒業', badgeTextEN: 'Graduated',
+      country: '🇲🇲'
+    },
+    {
+      icon: '📝',
+      schoolJP: 'BEHS No.10',
+      schoolEN: 'BEHS No.10',
+      deptJP: 'ミャンマー・マンダレー', deptEN: 'Mandalay, Myanmar',
+      period: '2010 – 2013',
+      periodEN: '2010 – 2013',
+      descJP: '中学校課程修了。',
+      descEN: 'Completed middle school curriculum.',
+      current: false,
+      gradient: 'from-rose-600/15 to-pink-600/15',
+      border: 'border-rose-500/30',
+      badgeColor: 'bg-gray-500/20 border-gray-500/30 text-gray-400',
+      badgeTextJP: '卒業', badgeTextEN: 'Graduated',
+      country: '🇲🇲'
+    },
   ];
+
   return (
     <section className="relative py-24 px-6">
-      <div className="absolute top-1/2 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-purple-600/5 rounded-full blur-[100px]" />
-      <div className="max-w-6xl mx-auto relative">
+      <div className="max-w-5xl mx-auto">
+
         <ScrollReveal>
           <div className="text-center mb-12">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-500/10 border border-purple-500/20 mb-4">
-              <span className="text-base">🎓</span>
-              <span className="text-sm text-purple-300">{isJP ? '学歴' : 'Education'}</span>
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-purple-500/10 border border-purple-500/20 mb-4">
+              <span className="text-sm">🎓</span>
+              <span className="text-xs font-semibold text-purple-300 tracking-widest uppercase">{isJP ? '学歴' : 'Education'}</span>
             </div>
             <h2 className="text-3xl md:text-5xl font-bold text-white mb-3">{isJP ? '学歴・教育歴' : 'Educational Background'}</h2>
-            <p className="text-gray-500">{isJP ? '多文化・多言語環境で培った学習歴' : 'Academic journey across multiple countries'}</p>
+            <p className="text-gray-500 text-sm">{isJP ? '多文化・多言語環境で培った学習歴' : 'Academic journey across multiple countries'}</p>
           </div>
         </ScrollReveal>
+
+        {/* Timeline */}
         <div className="relative">
-          <div className="absolute left-[28px] top-6 bottom-6 w-0.5 bg-gradient-to-b from-purple-500/50 via-blue-500/30 to-transparent hidden md:block" />
-          <div className="space-y-5">
+          {/* Vertical line */}
+          <div className="absolute left-6 top-4 bottom-4 w-px bg-gradient-to-b from-purple-500/40 via-blue-500/20 to-transparent hidden md:block" />
+
+          <div className="space-y-4">
             {educations.map((edu, i) => (
-              <ScrollReveal key={i} delay={i * 100}>
-                <div className="relative flex gap-5">
-                  <div className="hidden md:flex flex-shrink-0 w-14 h-14 rounded-2xl items-center justify-center text-2xl bg-gradient-to-br from-white/[0.05] to-white/[0.02] border border-white/[0.08] z-10">{edu.icon}</div>
-                  <div className={`flex-1 rounded-2xl border bg-gradient-to-br ${edu.gradient} ${edu.border} backdrop-blur-xl p-5 transition-all duration-500 hover:scale-[1.01] hover:shadow-[0_0_30px_rgba(139,92,246,0.1)]`}>
-                    <div className="flex flex-wrap items-start justify-between gap-3 mb-3">
+              <ScrollReveal key={i} delay={i * 80}>
+                <div className="relative flex gap-4 group">
+
+                  {/* Timeline dot */}
+                  <div className="hidden md:flex flex-shrink-0 w-12 h-12 rounded-xl items-center justify-center text-xl bg-white/[0.04] border border-white/[0.08] z-10 self-start mt-1 group-hover:border-purple-500/40 transition-colors">
+                    {edu.icon}
+                  </div>
+
+                  {/* Card */}
+                  <div className={`flex-1 rounded-xl border bg-gradient-to-br ${edu.gradient} ${edu.border} p-5 transition-all duration-400 hover:shadow-[0_0_30px_rgba(139,92,246,0.1)] hover:-translate-y-0.5`}>
+                    <div className="flex flex-wrap items-start justify-between gap-2 mb-1">
                       <div>
-                        <div className="flex items-center gap-2 mb-1">
-                          <span className="text-lg">{edu.country}</span>
-                          <h3 className="text-base md:text-lg font-bold text-white">{isJP ? edu.schoolJP : edu.schoolEN}</h3>
+                        <div className="flex items-center gap-2 mb-0.5">
+                          <span className="text-base">{edu.country}</span>
+                          <h3 className="text-base font-bold text-white">{isJP ? edu.schoolJP : edu.schoolEN}</h3>
                         </div>
-                        {(isJP ? edu.deptJP : edu.deptEN) && (<p className="text-gray-400 text-sm">{isJP ? edu.deptJP : edu.deptEN}</p>)}
+                        {(isJP ? edu.deptJP : edu.deptEN) && (
+                          <p className="text-gray-400 text-xs ml-6">{isJP ? edu.deptJP : edu.deptEN}</p>
+                        )}
                       </div>
-                      <span className={`text-xs px-2.5 py-1 rounded-full border ${edu.badgeColor} font-medium flex items-center gap-1`}>
-                        {edu.current && <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse inline-block" />}
-                        {isJP ? edu.badgeTextJP : edu.badgeTextEN}
-                      </span>
+                      <div className="flex items-center gap-2">
+                        <span className="text-gray-500 text-xs">{isJP ? edu.period : edu.periodEN}</span>
+                        <span className={`text-[10px] px-2 py-0.5 rounded-full border font-semibold ${edu.badgeColor} flex items-center gap-1`}>
+                          {edu.current && <span className="w-1 h-1 rounded-full bg-green-400 animate-pulse inline-block" />}
+                          {isJP ? edu.badgeTextJP : edu.badgeTextEN}
+                        </span>
+                      </div>
                     </div>
-                    <div className="flex items-center gap-1.5 text-gray-500 text-sm mb-3"><span>📅</span><span>{isJP ? edu.period : edu.periodEN}</span></div>
-                    <ul className="space-y-1">{(isJP ? edu.descJP : edu.descEN).map((item, d) => (<li key={d} className="flex items-start gap-2 text-sm text-gray-400"><span className="text-purple-400 mt-0.5 flex-shrink-0">▸</span>{item}</li>))}</ul>
+                    <p className="text-gray-500 text-xs mt-2 ml-0 md:ml-0">{isJP ? edu.descJP : edu.descEN}</p>
                   </div>
                 </div>
               </ScrollReveal>
