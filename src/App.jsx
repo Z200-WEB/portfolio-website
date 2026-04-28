@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef, Suspense } from 'react';
-import { Github, Linkedin, Mail, ExternalLink, Globe, MapPin, Sparkles, ArrowRight, Heart, Lightbulb, Bot, User, AlertCircle, CheckCircle, Box } from 'lucide-react';
+import { Github, Linkedin, Mail, ExternalLink, Globe, MapPin, Sparkles, ArrowRight, Heart, Lightbulb, Bot, User, AlertCircle, CheckCircle } from 'lucide-react';
 
-const TechVisualization = React.lazy(() => import('./components/TechVisualization'));
 
 const translations = {
   en: {
@@ -866,44 +865,6 @@ const BentoSection = ({ t }) => {
 };
 
 // ============================================
-// 3D VISUALIZATION SECTION
-// Purpose: Demonstrate 3D understanding with business context
-// ============================================
-const VisualizationSection = ({ t, lang }) => {
-  return (
-    <section className="relative py-24 px-6">
-      <div className="max-w-5xl mx-auto">
-        <ScrollReveal>
-          <div className="text-center mb-8">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-500/10 border border-purple-500/20 mb-4">
-              <Box size={16} className="text-purple-400" />
-              <span className="text-sm text-purple-300">3D Visualization</span>
-            </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">{t.visualization.title}</h2>
-            <p className="text-gray-500 max-w-xl mx-auto">{t.visualization.subtitle}</p>
-          </div>
-        </ScrollReveal>
-
-        <ScrollReveal delay={200}>
-          <div className="rounded-3xl overflow-hidden border border-white/[0.08] bg-white/[0.02]">
-            <Suspense fallback={
-              <div className="w-full h-[400px] flex items-center justify-center bg-black/40">
-                <div className="flex flex-col items-center gap-3">
-                  <div className="w-8 h-8 border-2 border-purple-500 border-t-transparent rounded-full animate-spin" />
-                  <span className="text-gray-500 text-sm">Loading 3D visualization...</span>
-                </div>
-              </div>
-            }>
-              <TechVisualization lang={lang} />
-            </Suspense>
-          </div>
-        </ScrollReveal>
-      </div>
-    </section>
-  );
-};
-
-// ============================================
 // PROJECTS SECTION
 // ============================================
 const ProjectsSection = ({ t }) => {
@@ -1230,10 +1191,9 @@ export default function App() {
       <Navigation lang={lang} setLang={setLang} t={t} scrolled={scrolled} />
       <HeroSection t={t} scrollY={scrollY} />
       <BentoSection t={t} />
-      <VisualizationSection t={t} lang={lang} />
-      <ProjectsSection t={t} />
-      <WorkExperienceSection lang={lang} />
       <EducationSection lang={lang} />
+      <WorkExperienceSection lang={lang} />
+      <ProjectsSection t={t} />
       <ConnectSection t={t} />
 
       <footer className="py-8 text-center border-t border-white/[0.05]">
