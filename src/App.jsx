@@ -56,26 +56,33 @@ const translations = {
       items: [
         {
           title: 'DocuChat AI',
-          problem: 'Reading and extracting insights from long PDF documents is slow and tedious.',
-          solution: 'RAG-powered document chat using Gemini 2.5 — ask any question about your PDF in natural language.',
+          description: 'AI-powered document chat system that allows users to interact with documents intelligently using RAG + Gemini 2.5.',
           tags: ['Next.js 14', 'TypeScript', 'RAG', 'Gemini 2.5', 'Tailwind'],
           github: 'https://github.com/Z200-WEB/docuchat-ai',
-                  demo: 'https://docuchat-ai-xi.vercel.app/',
+          links: [
+            { label: 'Live Demo', url: 'https://docuchat-ai-xi.vercel.app/', primary: true }
+          ],
+          badge: 'Featured Project',
+          category: 'AI / Web App',
           ai: true
         },
         {
           title: 'SmartOrder Restaurant System',
-          problem: 'Manual order-taking causes delays and errors in busy restaurants.',
-          solution: 'QR code-based self-ordering system. PHP 8.2 + MySQL + Docker. Live deployed, bilingual (EN/JP).',
+          description: 'A restaurant ordering system with both customer interface and management dashboard. QR code-based, bilingual (EN/JP).',
           tags: ['PHP 8.2', 'MySQL', 'Docker', 'Railway'],
           github: 'https://github.com/Z200-WEB/smartorder-restaurant-system',
-                            demo: 'https://smartorder-restaurant-system.onrender.com/index.php?tableNo=1',
-          ai: true
+          links: [
+            { label: 'Customer UI', url: 'https://smartorder-restaurant-system.onrender.com/index.php?tableNo=1', primary: true },
+            { label: 'Admin Dashboard', url: 'https://smartorder-restaurant-system.onrender.com/management.php', primary: false }
+          ],
+          badge: null,
+          category: 'PHP / Web System',
+          ai: false
         },
       ],
-    view: 'View on GitHub',
-      problemLabel: 'Problem',
-      solutionLabel: 'Solution'
+      liveDemo: 'Live Demo',
+      github: 'GitHub',
+      tryApp: 'Try the app live'
     },
     connect: { title: "Let's Connect", subtitle: 'Open for collaborations and new opportunities' },
     footer: 'Crafted with passion & code'
