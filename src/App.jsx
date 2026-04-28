@@ -16,7 +16,7 @@ const translations = {
     },
     about: {
       title: 'About Me',
-      bio: "I'm an AI Engineer based in Japan, passionate about building AI-powered products that solve real problems. I believe in ownership-driven development — I don't just write code, I identify real problems, design AI-integrated solutions, and ship complete products end-to-end.",
+      bio: "I'm an AI Engineer based in Japan, passionate about building AI-powered products that solve real problems. I believe in ownership-driven development â I don't just write code, I identify real problems, design AI-integrated solutions, and ship complete products end-to-end.",
       status: 'Available for opportunities',
       location: 'Japan'
     },
@@ -31,15 +31,21 @@ const translations = {
     },
     aiUsage: {
       title: 'How I Build with AI',
-      description: "I don't just use AI tools — I build them. RAG pipelines, LLM integrations, prompt engineering, and AI-powered automations are core to my work."
+      description: "I don't just use AI tools â I build them. RAG pipelines, LLM integrations, prompt engineering, and AI-powered automations are core to my work."
     },
     outsideCode: {
       title: 'Outside of Code',
       items: [
-        { icon: '✈️', label: 'Travel', desc: 'Adaptability to new environments' },
-        { icon: '🎮', label: 'Gaming', desc: 'Problem-solving mindset' },
-        { icon: '💪', label: 'Gym', desc: 'Consistency and self-discipline' }
+        { icon: 'âï¸', label: 'Travel', desc: 'Adaptability to new environments' },
+        { icon: 'ð®', label: 'Gaming', desc: 'Problem-solving mindset' },
+        { icon: 'ðª', label: 'Gym', desc: 'Consistency and self-discipline' }
       ]
+    },
+    languages: {
+      title: 'Language Skills',
+      japanese: { name: 'Japanese', level: 'Business Level' },
+      english: { name: 'English', level: 'Business Level' },
+      myanmar: { name: 'Myanmar', level: 'Native' }
     },
     tech: { title: 'Tech Stack' },
     visualization: {
@@ -53,7 +59,7 @@ const translations = {
         {
           title: 'DocuChat AI',
           problem: 'Reading and extracting insights from long PDF documents is slow and tedious.',
-          solution: 'RAG-powered document chat using Gemini 2.5 — ask any question about your PDF in natural language.',
+          solution: 'RAG-powered document chat using Gemini 2.5 â ask any question about your PDF in natural language.',
           tags: ['Next.js 14', 'TypeScript', 'RAG', 'Gemini 2.5', 'Tailwind'],
           github: 'https://github.com/Z200-WEB/docuchat-ai',
                   demo: 'https://docuchat-ai-xi.vercel.app/',
@@ -77,57 +83,57 @@ const translations = {
     footer: 'Crafted with passion & code'
   },
   jp: {
-    nav: { work: '作品', about: '私について', contact: '連絡' },
+    nav: { work: 'ä½å', about: 'ç§ã«ã¤ãã¦', contact: 'é£çµ¡' },
     hero: {
-      greeting: 'こんにちは、',
-      name: 'ズェーゾーテッ',
-      role: 'AIエンジニア',
-      description: 'React x TypeScript x AI/LLMで、インテリジェントなプロダクトを構築しています。',
-      cta: '作品を見る',
-      scroll: 'スクロールして発見'
+      greeting: 'ããã«ã¡ã¯ã',
+      name: 'ãºã§ã¼ã¾ã¼ãã',
+      role: 'AIã¨ã³ã¸ãã¢',
+      description: 'React x TypeScript x AI/LLMã§ãã¤ã³ããªã¸ã§ã³ããªãã­ãã¯ããæ§ç¯ãã¦ãã¾ãã',
+      cta: 'ä½åãè¦ã',
+      scroll: 'ã¹ã¯ã­ã¼ã«ãã¦çºè¦'
     },
     about: {
-      title: '私について',
-            bio: '日本を拠点に、ReactとAI/LLMを組み合わせたWebプロダクトを設計・開発しているエンジニアです。アイデアの発案からデプロイまで、一人で完結させるオーナーシップ主導の開発スタイルで活動しています。',
-      status: '機会を探しています',
-      location: '日本'
+      title: 'ç§ã«ã¤ãã¦',
+            bio: 'æ¥æ¬ãæ ç¹ã«ãReactã¨AI/LLMãçµã¿åãããWebãã­ãã¯ããè¨­è¨ã»éçºãã¦ããã¨ã³ã¸ãã¢ã§ããã¢ã¤ãã¢ã®çºæ¡ããããã­ã¤ã¾ã§ãä¸äººã§å®çµããããªã¼ãã¼ã·ããä¸»å°ã®éçºã¹ã¿ã¤ã«ã§æ´»åãã¦ãã¾ãã',
+      status: 'æ©ä¼ãæ¢ãã¦ãã¾ã',
+      location: 'æ¥æ¬'
     },
     workflow: {
-      title: '私の考え方',
+      title: 'ç§ã®èãæ¹',
       steps: [
-        '解決すべき本質的な課題を特定する',
-        'AIを統合したアーキテクチャを設計する',
-        'AIを誰もが使えるUIを構築する',
-        'デプロイし、フィードバックをもとに改善する'
+        'è§£æ±ºãã¹ãæ¬è³ªçãªèª²é¡ãç¹å®ãã',
+        'AIãçµ±åããã¢ã¼ã­ãã¯ãã£ãè¨­è¨ãã',
+        'AIãèª°ããä½¿ããUIãæ§ç¯ãã',
+        'ããã­ã¤ãããã£ã¼ãããã¯ããã¨ã«æ¹åãã'
       ]
     },
     aiUsage: {
-      title: 'AIでの開発方法',
-      description: 'AIツールを使うだけでなく、構築します。RAGパイプライン、LLM統合、プロンプトエンジニアリング、AI自動化が私の中心的な作業です。'
+      title: 'AIã§ã®éçºæ¹æ³',
+      description: 'AIãã¼ã«ãä½¿ãã ãã§ãªããæ§ç¯ãã¾ããRAGãã¤ãã©ã¤ã³ãLLMçµ±åããã­ã³ããã¨ã³ã¸ãã¢ãªã³ã°ãAIèªååãç§ã®ä¸­å¿çãªä½æ¥­ã§ãã'
     },
     outsideCode: {
-      title: 'コード以外の時間',
+      title: 'ã³ã¼ãä»¥å¤ã®æé',
       items: [
-        { icon: '✈️', label: '旅行', desc: '環境変化への適応力' },
-        { icon: '🎮', label: 'ゲーム', desc: '課題解決力' },
-        { icon: '💪', label: 'ジム', desc: '継続力と自己管理' }
+        { icon: 'âï¸', label: 'æè¡', desc: 'ç°å¢å¤åã¸ã®é©å¿å' },
+        { icon: 'ð®', label: 'ã²ã¼ã ', desc: 'èª²é¡è§£æ±ºå' },
+        { icon: 'ðª', label: 'ã¸ã ', desc: 'ç¶ç¶åã¨èªå·±ç®¡ç' }
       ]
     },
-    tech: { title: 'テックスタック' },
-    visualization: { title: 'テクノロジーエコシステム', subtitle: 'スキルがインテリジェントなプロダクトにどう繋がるか' },
+    tech: { title: 'ããã¯ã¹ã¿ãã¯' },
+    visualization: { title: 'ãã¯ãã­ã¸ã¼ã¨ã³ã·ã¹ãã ', subtitle: 'ã¹ã­ã«ãã¤ã³ããªã¸ã§ã³ããªãã­ãã¯ãã«ã©ãç¹ããã' },
     projects: {
-      title: 'プロジェクト',
-      subtitle: 'AIと実世界の課題解決',
+      title: 'ãã­ã¸ã§ã¯ã',
+      subtitle: 'AIã¨å®ä¸çã®èª²é¡è§£æ±º',
       items: [
-        { title: 'DocuChat AI', problem: '長いPDFの読解と情報抽出は時間がかかる。', solution: 'Gemini 2.5を使ったRAGによるドキュメントチャット。', tags: ['Next.js 14', 'TypeScript', 'RAG', 'Gemini 2.5', 'Tailwind'], github: 'https://github.com/Z200-WEB/docuchat-ai', demo: 'https://docuchat-ai-xi.vercel.app/', ai: true },
-           { title: 'スマートオーダーシステム', problem: '手動の注文受付による遅延とミス。', solution: 'QRコードベースのセルフ注文システム。ライブデプロイ済み。', tags: ['PHP 8.2', 'MySQL', 'Docker', 'Railway'], github: 'https://github.com/Z200-WEB/smartorder-restaurant-system', demo: 'https://smartorder-restaurant-system.onrender.com/index.php?tableNo=1', ai: true },
+        { title: 'DocuChat AI', problem: 'é·ãPDFã®èª­è§£ã¨æå ±æ½åºã¯æéããããã', solution: 'Gemini 2.5ãä½¿ã£ãRAGã«ãããã­ã¥ã¡ã³ããã£ããã', tags: ['Next.js 14', 'TypeScript', 'RAG', 'Gemini 2.5', 'Tailwind'], github: 'https://github.com/Z200-WEB/docuchat-ai', demo: 'https://docuchat-ai-xi.vercel.app/', ai: true },
+           { title: 'ã¹ãã¼ããªã¼ãã¼ã·ã¹ãã ', problem: 'æåã®æ³¨æåä»ã«ããéå»¶ã¨ãã¹ã', solution: 'QRã³ã¼ããã¼ã¹ã®ã»ã«ãæ³¨æã·ã¹ãã ãã©ã¤ãããã­ã¤æ¸ã¿ã', tags: ['PHP 8.2', 'MySQL', 'Docker', 'Railway'], github: 'https://github.com/Z200-WEB/smartorder-restaurant-system', demo: 'https://smartorder-restaurant-system.onrender.com/index.php?tableNo=1', ai: true },
          ],
-      view: 'GitHubで見る',
-      problemLabel: '課題',
-      solutionLabel: '解決策'
+      view: 'GitHubã§è¦ã',
+      problemLabel: 'èª²é¡',
+      solutionLabel: 'è§£æ±ºç­'
     },
-    connect: { title: 'つながりましょう', subtitle: 'コラボレーションと新しい機会を求めています' },
-    footer: '情熱とコードで作られました'
+    connect: { title: 'ã¤ãªããã¾ããã', subtitle: 'ã³ã©ãã¬ã¼ã·ã§ã³ã¨æ°ããæ©ä¼ãæ±ãã¦ãã¾ã' },
+    footer: 'æç±ã¨ã³ã¼ãã§ä½ããã¾ãã'
   }
 };
 // ============================================
@@ -177,7 +183,7 @@ const Card3D = ({ children, className = '', badge = false, title = '', subtitle 
               <div className="absolute inset-0 flex items-center justify-center">
                 <span className="text-[8px] text-gray-400 font-bold tracking-widest whitespace-nowrap"
                   style={{ writingMode: 'vertical-rl', textOrientation: 'mixed', transform: 'rotate(180deg)' }}>
-                  AI ENGINEER • JAPAN
+                  AI ENGINEER â¢ JAPAN
                 </span>
               </div>
             </div>
@@ -764,39 +770,40 @@ const BentoSection = ({ t }) => {
                                   </BentoCard>
           </ScrollReveal>
 
-          {/* Status Card */}
-          <ScrollReveal delay={100}>
-            <BentoCard className="p-6 h-full min-h-[160px]">
-              <div className="h-full flex flex-col justify-between">
-                <div className="flex items-center gap-2 mb-4">
-                  <div className="relative">
-                    <div className="w-2 h-2 rounded-full bg-green-500" />
-                    <div className="absolute inset-0 w-2 h-2 rounded-full bg-green-500 animate-ping" />
-                  </div>
-                  <span className="text-sm text-green-400">{t.about.status}</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <MapPin className="text-cyan-400" size={20} />
-                  <div>
-                    <p className="text-white text-lg font-medium">{t.about.location}</p>
-                    <p className="text-gray-500 text-sm">🇯🇵</p>
-                  </div>
-                </div>
-              </div>
-            </BentoCard>
-          </ScrollReveal>
 
-          {/* How I Use AI Card */}
-          <ScrollReveal delay={200}>
+          {/* Language Skills Card */}
+          <ScrollReveal delay={100} className="md:col-span-2 lg:col-span-2">
             <BentoCard className="p-6 h-full min-h-[160px]">
               <div className="h-full flex flex-col">
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="p-2 rounded-lg bg-cyan-500/10 border border-cyan-500/20">
-                    <Bot className="text-cyan-400" size={18} />
+                  <div className="p-2 rounded-lg bg-gradient-to-br from-purple-500/20 to-cyan-500/20 border border-purple-500/20">
+                    <Globe className="text-purple-400" size={18} />
                   </div>
-                  <h3 className="text-sm font-semibold text-white">{t.aiUsage.title}</h3>
+                  <h3 className="text-sm font-semibold text-white">{t.languages?.title || '言語スキル'}</h3>
                 </div>
-                <p className="text-gray-400 text-xs leading-relaxed">{t.aiUsage.description}</p>
+                <div className="flex flex-col gap-3">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-2">
+                      <span className="text-lg">🇯🇵</span>
+                      <span className="text-white text-sm font-medium">{t.languages?.japanese?.name || '日本語'}</span>
+                    </div>
+                    <span className="text-xs px-2 py-1 rounded-full bg-blue-500/20 text-blue-300 border border-blue-500/30">{t.languages?.japanese?.level || 'ビジネスレベル'}</span>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-2">
+                      <span className="text-lg">🇬🇧</span>
+                      <span className="text-white text-sm font-medium">{t.languages?.english?.name || 'English'}</span>
+                    </div>
+                    <span className="text-xs px-2 py-1 rounded-full bg-green-500/20 text-green-300 border border-green-500/30">{t.languages?.english?.level || 'Business Level'}</span>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-2">
+                      <span className="text-lg">🇲🇲</span>
+                      <span className="text-white text-sm font-medium">{t.languages?.myanmar?.name || 'မြန်မာဘာသာ'}</span>
+                    </div>
+                    <span className="text-xs px-2 py-1 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/30">{t.languages?.myanmar?.level || 'ネイティブ'}</span>
+                  </div>
+                </div>
               </div>
             </BentoCard>
           </ScrollReveal>
@@ -1005,6 +1012,367 @@ const ProjectsSection = ({ t }) => {
   );
 };
 
+
+// ============================================
+// WORK EXPERIENCE SECTION (職歴)
+// ============================================
+const WorkExperienceSection = ({ lang }) => {
+  const [expandedCard, setExpandedCard] = useState(null);
+
+  const experiences = [
+    {
+      icon: '📚',
+      titleJP: '英語講師',
+      titleEN: 'English Instructor',
+      company: '',
+      typeJP: 'アルバイト',
+      typeEN: 'Part-time',
+      period: '2024年 - 現在',
+      periodEN: '2024 - Present',
+      current: true,
+      descJP: [
+        '小学生を対象に英語指導（語彙・文法・会話）',
+        '理解度に応じたレッスンプラン作成',
+        '保護者と連携し進捗報告',
+      ],
+      descEN: [
+        'English instruction for elementary school students (vocabulary, grammar, conversation)',
+        'Creating lesson plans tailored to student comprehension levels',
+        'Collaborating with parents and reporting student progress',
+      ],
+      tagsJP: ['教育', 'コミュニケーション', '語学'],
+      tagsEN: ['Education', 'Communication', 'Language'],
+      gradient: 'from-blue-600/20 to-cyan-600/20',
+      border: 'border-blue-500/30',
+      iconBg: 'bg-blue-500/20',
+    },
+    {
+      icon: '🏪',
+      titleJP: 'セブンイレブン',
+      titleEN: '7-Eleven',
+      company: '',
+      typeJP: 'アルバイト',
+      typeEN: 'Part-time',
+      period: '2023年 - 現在',
+      periodEN: '2023 - Present',
+      current: true,
+      descJP: [
+        'レジ業務（正確で迅速な会計）',
+        '接客対応で顧客満足度向上',
+        '商品補充・店内整理',
+        'チームでの店舗運営',
+      ],
+      descEN: [
+        'Cash register operations (accurate and efficient checkout)',
+        'Customer service to improve customer satisfaction',
+        'Product restocking and store organization',
+        'Team-based store operations',
+      ],
+      tagsJP: ['接客', 'チームワーク', 'コミュニケーション'],
+      tagsEN: ['Customer Service', 'Teamwork', 'Communication'],
+      gradient: 'from-orange-600/20 to-amber-600/20',
+      border: 'border-orange-500/30',
+      iconBg: 'bg-orange-500/20',
+    },
+    {
+      icon: '🍜',
+      titleJP: 'リンガーハット',
+      titleEN: 'Ringer Hut',
+      company: '',
+      typeJP: 'アルバイト',
+      typeEN: 'Part-time',
+      period: '2023年 - 2024年',
+      periodEN: '2023 - 2024',
+      current: false,
+      descJP: [
+        'ホール業務（接客・オーダー）',
+        'キッチン補助（調理・盛り付け）',
+        '清掃・備品管理',
+        'チームワーク重視',
+      ],
+      descEN: [
+        'Hall operations (customer service, order taking)',
+        'Kitchen assistance (cooking, plating)',
+        'Cleaning and equipment management',
+        'Emphasis on teamwork',
+      ],
+      tagsJP: ['接客', 'チームワーク', '調理補助'],
+      tagsEN: ['Customer Service', 'Teamwork', 'Kitchen Assist'],
+      gradient: 'from-red-600/20 to-pink-600/20',
+      border: 'border-red-500/30',
+      iconBg: 'bg-red-500/20',
+    },
+  ];
+
+  const isJP = lang === 'jp';
+
+  return (
+    <section className="relative py-24 px-6">
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-600/5 rounded-full blur-[120px]" />
+      <div className="max-w-6xl mx-auto relative">
+        <ScrollReveal>
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 mb-4">
+              <span className="text-base">💼</span>
+              <span className="text-sm text-blue-300">{isJP ? '職歴' : 'Work Experience'}</span>
+            </div>
+            <h2 className="text-3xl md:text-5xl font-bold text-white mb-3">
+              {isJP ? 'アルバイト経験' : 'Part-time Experience'}
+            </h2>
+            <p className="text-gray-500">{isJP ? '実務を通じて培ったスキル' : 'Skills developed through hands-on experience'}</p>
+          </div>
+        </ScrollReveal>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {experiences.map((exp, i) => (
+            <ScrollReveal key={i} delay={i * 150}>
+              <div
+                className={`relative rounded-3xl border bg-gradient-to-br ${exp.gradient} ${exp.border} backdrop-blur-xl overflow-hidden cursor-pointer transition-all duration-500 hover:scale-[1.02] hover:-translate-y-1 hover:shadow-[0_0_40px_rgba(139,92,246,0.15)]`}
+                onClick={() => setExpandedCard(expandedCard === i ? null : i)}
+              >
+                {/* Card Header */}
+                <div className="p-6">
+                  <div className="flex items-start justify-between mb-4">
+                    <div className={`w-12 h-12 rounded-2xl ${exp.iconBg} flex items-center justify-center text-2xl`}>
+                      {exp.icon}
+                    </div>
+                    {exp.current && (
+                      <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-green-500/20 border border-green-500/30">
+                        <div className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
+                        <span className="text-xs text-green-400 font-medium">{isJP ? '在職中' : 'Current'}</span>
+                      </div>
+                    )}
+                  </div>
+
+                  <div className="mb-3">
+                    <div className="flex items-center gap-2 mb-1">
+                      <h3 className="text-lg font-bold text-white">{isJP ? exp.titleJP : exp.titleEN}</h3>
+                      <span className="text-xs px-2 py-0.5 rounded-full bg-white/10 text-gray-300">
+                        {isJP ? exp.typeJP : exp.typeEN}
+                      </span>
+                    </div>
+                    <div className="flex items-center gap-1.5 text-gray-400 text-sm">
+                      <span>📅</span>
+                      <span>{isJP ? exp.period : exp.periodEN}</span>
+                    </div>
+                  </div>
+
+                  {/* Skill Tags */}
+                  <div className="flex flex-wrap gap-1.5 mb-4">
+                    {(isJP ? exp.tagsJP : exp.tagsEN).map((tag, t) => (
+                      <span key={t} className="text-xs px-2.5 py-1 rounded-full bg-white/[0.08] text-gray-300 border border-white/10">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+
+                  {/* Expand hint */}
+                  <div className="flex items-center gap-1 text-xs text-gray-500">
+                    <span>{expandedCard === i ? (isJP ? '閉じる ↑' : 'Close ↑') : (isJP ? '詳細を見る ↓' : 'View details ↓')}</span>
+                  </div>
+                </div>
+
+                {/* Expandable Content */}
+                <div className={`overflow-hidden transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${expandedCard === i ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
+                  <div className="px-6 pb-6 border-t border-white/[0.08] pt-4">
+                    <p className="text-xs text-gray-500 font-semibold uppercase tracking-wider mb-3">
+                      {isJP ? '仕事内容' : 'Responsibilities'}
+                    </p>
+                    <ul className="space-y-2">
+                      {(isJP ? exp.descJP : exp.descEN).map((item, d) => (
+                        <li key={d} className="flex items-start gap-2 text-sm text-gray-300">
+                          <span className="text-purple-400 mt-0.5 flex-shrink-0">▸</span>
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+
+                {/* Decorative gradient line */}
+                <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+              </div>
+            </ScrollReveal>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+// ============================================
+// EDUCATION SECTION (学歴)
+// ============================================
+const EducationSection = ({ lang }) => {
+  const isJP = lang === 'jp';
+
+  const educations = [
+    {
+      icon: '🎓',
+      schoolJP: '大手前大学',
+      schoolEN: 'Otemae University',
+      deptJP: '現代社会学部 現代社会学科',
+      deptEN: 'Faculty of Contemporary Social Studies',
+      period: '2025年4月 - 2027年3月（見込）',
+      periodEN: 'Apr 2025 - Mar 2027 (Expected)',
+      descJP: ['ITと語学を中心に学習', 'AI・Webエンジニアリングを実践'],
+      descEN: ['Focusing on IT and language studies', 'Practicing AI and web engineering'],
+      current: true,
+      gradient: 'from-purple-600/20 to-pink-600/20',
+      border: 'border-purple-500/30',
+      badgeColor: 'bg-green-500/20 border-green-500/30 text-green-400',
+      badgeTextJP: '在学中',
+      badgeTextEN: 'Current',
+      country: '🇯🇵',
+    },
+    {
+      icon: '📖',
+      schoolJP: '大手前短期大学',
+      schoolEN: 'Otemae Junior College',
+      deptJP: '',
+      deptEN: '',
+      period: '2023年4月 - 2025年3月',
+      periodEN: 'Apr 2023 - Mar 2025',
+      descJP: ['短期大学にて専門的な知識を習得'],
+      descEN: ['Acquired specialized knowledge at junior college'],
+      current: false,
+      gradient: 'from-blue-600/20 to-cyan-600/20',
+      border: 'border-blue-500/30',
+      badgeColor: 'bg-blue-500/20 border-blue-500/30 text-blue-400',
+      badgeTextJP: '卒業',
+      badgeTextEN: 'Graduated',
+      country: '🇯🇵',
+    },
+    {
+      icon: '💻',
+      schoolJP: 'Government Technical Institute',
+      schoolEN: 'Government Technical Institute',
+      deptJP: 'ミャンマー',
+      deptEN: 'Myanmar',
+      period: '2016年4月 - 2019年3月',
+      periodEN: 'Apr 2016 - Mar 2019',
+      descJP: ['技術系専門教育を受ける'],
+      descEN: ['Technical and vocational education'],
+      current: false,
+      gradient: 'from-cyan-600/20 to-teal-600/20',
+      border: 'border-cyan-500/30',
+      badgeColor: 'bg-gray-500/20 border-gray-500/30 text-gray-400',
+      badgeTextJP: '卒業',
+      badgeTextEN: 'Graduated',
+      country: '🇲🇲',
+    },
+    {
+      icon: '📘',
+      schoolJP: 'BEHS No.16',
+      schoolEN: 'BEHS No.16',
+      deptJP: 'ミャンマー・マンダレー',
+      deptEN: 'Mandalay, Myanmar',
+      period: '2013年4月 - 2016年3月',
+      periodEN: 'Apr 2013 - Mar 2016',
+      descJP: ['高等学校課程を修了'],
+      descEN: ['Completed high school curriculum'],
+      current: false,
+      gradient: 'from-amber-600/20 to-orange-600/20',
+      border: 'border-amber-500/30',
+      badgeColor: 'bg-gray-500/20 border-gray-500/30 text-gray-400',
+      badgeTextJP: '卒業',
+      badgeTextEN: 'Graduated',
+      country: '🇲🇲',
+    },
+    {
+      icon: '📝',
+      schoolJP: 'BEHS No.10',
+      schoolEN: 'BEHS No.10',
+      deptJP: 'ミャンマー・マンダレー',
+      deptEN: 'Mandalay, Myanmar',
+      period: '2010年 - 2013年',
+      periodEN: '2010 - 2013',
+      descJP: ['中学校課程を修了'],
+      descEN: ['Completed middle school curriculum'],
+      current: false,
+      gradient: 'from-rose-600/20 to-pink-600/20',
+      border: 'border-rose-500/30',
+      badgeColor: 'bg-gray-500/20 border-gray-500/30 text-gray-400',
+      badgeTextJP: '卒業',
+      badgeTextEN: 'Graduated',
+      country: '🇲🇲',
+    },
+  ];
+
+  return (
+    <section className="relative py-24 px-6">
+      <div className="absolute top-1/2 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-purple-600/5 rounded-full blur-[100px]" />
+      <div className="max-w-6xl mx-auto relative">
+        <ScrollReveal>
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-500/10 border border-purple-500/20 mb-4">
+              <span className="text-base">🎓</span>
+              <span className="text-sm text-purple-300">{isJP ? '学歴' : 'Education'}</span>
+            </div>
+            <h2 className="text-3xl md:text-5xl font-bold text-white mb-3">
+              {isJP ? '学歴・教育歴' : 'Educational Background'}
+            </h2>
+            <p className="text-gray-500">{isJP ? '多文化・多言語環境で培った学習歴' : 'Academic journey across multiple countries'}</p>
+          </div>
+        </ScrollReveal>
+
+        <div className="relative">
+          {/* Timeline line */}
+          <div className="absolute left-[28px] top-6 bottom-6 w-0.5 bg-gradient-to-b from-purple-500/50 via-blue-500/30 to-transparent hidden md:block" />
+
+          <div className="space-y-5">
+            {educations.map((edu, i) => (
+              <ScrollReveal key={i} delay={i * 100}>
+                <div className="relative flex gap-5">
+                  {/* Timeline dot */}
+                  <div className="hidden md:flex flex-shrink-0 w-14 h-14 rounded-2xl items-center justify-center text-2xl bg-gradient-to-br from-white/[0.05] to-white/[0.02] border border-white/[0.08] z-10">
+                    {edu.icon}
+                  </div>
+
+                  {/* Card */}
+                  <div className={`flex-1 rounded-2xl border bg-gradient-to-br ${edu.gradient} ${edu.border} backdrop-blur-xl p-5 transition-all duration-500 hover:scale-[1.01] hover:shadow-[0_0_30px_rgba(139,92,246,0.1)]`}>
+                    <div className="flex flex-wrap items-start justify-between gap-3 mb-3">
+                      <div>
+                        <div className="flex items-center gap-2 mb-1">
+                          <span className="text-lg">{edu.country}</span>
+                          <h3 className="text-base md:text-lg font-bold text-white">{isJP ? edu.schoolJP : edu.schoolEN}</h3>
+                        </div>
+                        {(isJP ? edu.deptJP : edu.deptEN) && (
+                          <p className="text-gray-400 text-sm">{isJP ? edu.deptJP : edu.deptEN}</p>
+                        )}
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <span className={`text-xs px-2.5 py-1 rounded-full border ${edu.badgeColor} font-medium flex items-center gap-1`}>
+                          {edu.current && <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse inline-block" />}
+                          {isJP ? edu.badgeTextJP : edu.badgeTextEN}
+                        </span>
+                      </div>
+                    </div>
+
+                    <div className="flex items-center gap-1.5 text-gray-500 text-sm mb-3">
+                      <span>📅</span>
+                      <span>{isJP ? edu.period : edu.periodEN}</span>
+                    </div>
+
+                    <ul className="space-y-1">
+                      {(isJP ? edu.descJP : edu.descEN).map((item, d) => (
+                        <li key={d} className="flex items-start gap-2 text-sm text-gray-400">
+                          <span className="text-purple-400 mt-0.5 flex-shrink-0">▸</span>
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </ScrollReveal>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
 // ============================================
 // CONNECT SECTION
 // ============================================
@@ -1099,11 +1467,13 @@ export default function App() {
       <BentoSection t={t} />
       <VisualizationSection t={t} lang={lang} />
       <ProjectsSection t={t} />
+      <WorkExperienceSection lang={lang} />
+      <EducationSection lang={lang} />
       <ConnectSection t={t} />
 
       <footer className="py-8 text-center border-t border-white/[0.05]">
         <p className="text-gray-600 text-sm flex items-center justify-center gap-2">
-          © 2026 ZAWE ZAW HTET. {t.footer}
+          Â© 2026 ZAWE ZAW HTET. {t.footer}
           <Heart size={14} className="text-pink-500 animate-pulse" />
         </p>
       </footer>
