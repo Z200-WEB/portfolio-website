@@ -128,12 +128,35 @@ const translations = {
       title: 'プロジェクト',
       subtitle: 'AIと実世界の課題解決',
       items: [
-        { title: 'DocuChat AI', problem: '長いPDFの読解と情報抽出は時間がかかる。', solution: 'Gemini 2.5を使ったRAGによるドキュメントチャット。', tags: ['Next.js 14', 'TypeScript', 'RAG', 'Gemini 2.5', 'Tailwind'], github: 'https://github.com/Z200-WEB/docuchat-ai', demo: 'https://docuchat-ai-xi.vercel.app/', ai: true },
-           { title: 'スマートオーダーシステム', problem: '手動の注文受付による遅延とミス。', solution: 'QRコードベースのセルフ注文システム。ライブデプロイ済み。', tags: ['PHP 8.2', 'MySQL', 'Docker', 'Railway'], github: 'https://github.com/Z200-WEB/smartorder-restaurant-system', demo: 'https://smartorder-restaurant-system.onrender.com/index.php?tableNo=1', ai: true },
-         ],
-      view: 'GitHubで見る',
-      problemLabel: '課題',
-      solutionLabel: '解決策'
+        {
+          title: 'DocuChat AI',
+          description: 'RAG + Gemini 2.5を使ったAI搭載ドキュメントチャットシステム。PDFと対話できます。',
+          tags: ['Next.js 14', 'TypeScript', 'RAG', 'Gemini 2.5', 'Tailwind'],
+          github: 'https://github.com/Z200-WEB/docuchat-ai',
+          links: [
+            { label: 'ライブデモ', url: 'https://docuchat-ai-xi.vercel.app/', primary: true }
+          ],
+          badge: '注目プロジェクト',
+          category: 'AI / Webアプリ',
+          ai: true
+        },
+        {
+          title: 'スマートオーダーシステム',
+          description: 'お客様用インターフェースと管理ダッシュボードを備えたレストラン注文システム。QRコード対応・バイリンガル。',
+          tags: ['PHP 8.2', 'MySQL', 'Docker', 'Railway'],
+          github: 'https://github.com/Z200-WEB/smartorder-restaurant-system',
+          links: [
+            { label: '注文画面', url: 'https://smartorder-restaurant-system.onrender.com/index.php?tableNo=1', primary: true },
+            { label: '管理画面', url: 'https://smartorder-restaurant-system.onrender.com/management.php', primary: false }
+          ],
+          badge: null,
+          category: 'PHP / Webシステム',
+          ai: false
+        },
+      ],
+      liveDemo: 'ライブデモ',
+      github: 'GitHub',
+      tryApp: 'アプリを試す'
     },
     connect: { title: 'つながりましょう', subtitle: 'コラボレーションと新しい機会を求めています' },
     footer: '情熱とコードで作られました'
@@ -762,117 +785,144 @@ const BentoSection = ({ t }) => {
 // PROJECTS SECTION
 // ============================================
 const ProjectsSection = ({ t }) => {
-  const gradients = [
-    'from-purple-600 via-pink-600 to-red-500',
-    'from-cyan-500 via-blue-600 to-purple-600',
-    'from-orange-500 via-red-500 to-pink-600',
-    'from-emerald-500 via-teal-500 to-cyan-600'
+  const accentColors = [
+    { glow: 'rgba(168,85,247,0.25)', border: 'rgba(168,85,247,0.4)', tag: 'bg-purple-500/15 text-purple-300 border-purple-500/30', dot: 'bg-purple-400' },
+    { glow: 'rgba(6,182,212,0.25)',  border: 'rgba(6,182,212,0.4)',  tag: 'bg-cyan-500/15 text-cyan-300 border-cyan-500/30',    dot: 'bg-cyan-400'   },
   ];
 
   return (
     <section id="projects" className="relative py-32 px-6">
-      {/* Background glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-purple-600/10 rounded-full blur-[150px]" />
+      {/* Ambient glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] bg-purple-600/8 rounded-full blur-[160px] pointer-events-none" />
 
-      <div className="max-w-6xl mx-auto relative">
-        {/* Header */}
+      <div className="max-w-5xl mx-auto relative">
+
+        {/* ── Header ── */}
         <ScrollReveal>
           <div className="text-center mb-16">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-purple-500/10 border border-purple-500/20 mb-5">
+              <span className="w-1.5 h-1.5 rounded-full bg-purple-400 animate-pulse" />
+              <span className="text-xs font-semibold text-purple-300 tracking-widest uppercase">Projects</span>
+            </div>
             <h2 className="text-4xl md:text-6xl font-bold text-white mb-4">{t.projects.title}</h2>
-            <p className="text-gray-500">{t.projects.subtitle}</p>
+            <p className="text-gray-500 text-lg">{t.projects.subtitle}</p>
           </div>
         </ScrollReveal>
 
-        {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {t.projects.items.map((project, i) => (
-            <ScrollReveal key={i} delay={i * 150}>
-              <a
-                href={project.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group relative block h-[400px] md:h-[450px] rounded-3xl overflow-hidden cursor-pointer transition-all duration-500 hover:scale-[1.02] hover:-translate-y-2 active:scale-[0.98]"
-              >
-                {/* Gradient background */}
-                <div className={`absolute inset-0 bg-gradient-to-br ${gradients[i % gradients.length]} opacity-85 group-hover:opacity-100 transition-opacity duration-500`} />
+        {/* ── Grid ── */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-7">
+          {t.projects.items.map((project, i) => {
+            const accent = accentColors[i % accentColors.length];
+            return (
+              <ScrollReveal key={i} delay={i * 150}>
+                <div
+                  className="group relative flex flex-col rounded-2xl overflow-hidden border border-white/[0.08] bg-white/[0.03] backdrop-blur-xl transition-all duration-500 hover:-translate-y-2"
+                  style={{
+                    boxShadow: '0 0 0 1px rgba(255,255,255,0.04)',
+                  }}
+                  onMouseEnter={e => { e.currentTarget.style.boxShadow = `0 0 0 1px ${accent.border}, 0 20px 60px ${accent.glow}`; }}
+                  onMouseLeave={e => { e.currentTarget.style.boxShadow = '0 0 0 1px rgba(255,255,255,0.04)'; }}
+                >
 
-                {/* Grid pattern overlay */}
-                <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:30px_30px]" />
-
-                {/* Decorative elements */}
-                <div className="absolute top-6 right-6 w-20 h-20 border-2 border-white/20 rounded-2xl rotate-12 group-hover:rotate-45 group-hover:scale-110 transition-all duration-700" />
-                <div className="absolute top-1/2 right-10 w-32 h-32 bg-white/5 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-700" />
-
-                {/* GitHub badge */}
-                <div className="absolute top-5 left-5 p-2.5 rounded-full bg-black/30 backdrop-blur-sm border border-white/20 group-hover:bg-white/20 group-hover:scale-110 transition-all duration-300">
-                  <Github size={18} className="text-white" />
-                </div>
-                {/* AI badge */}
-                {project.ai && (
-                  <div className="absolute top-5 right-14 flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-purple-500/30 backdrop-blur-sm border border-purple-400/40">
-                    <Bot size={12} className="text-purple-300" />
-                    <span className="text-[10px] text-purple-300 font-semibold tracking-wider">AI</span>
-                  </div>
-                )}
-
-                {/* Content */}
-                <div className="absolute inset-0 p-6 md:p-8 flex flex-col justify-end">
-                  <div className="transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
-                    {/* Title */}
-                    <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">{project.title}</h3>
-
-                    {/* Problem & Solution */}
-                    <div className="space-y-2.5 mb-4">
-                      <div className="flex items-start gap-2">
-                        <div className="flex-shrink-0 w-5 h-5 rounded-full bg-black/30 flex items-center justify-center mt-0.5">
-                          <AlertCircle size={11} className="text-red-300" />
-                        </div>
-                        <div>
-                          <p className="text-[10px] font-semibold text-red-200 uppercase tracking-wide">{t.projects.problemLabel}</p>
-                          <p className="text-xs text-white/80 leading-relaxed">{project.problem}</p>
-                        </div>
+                  {/* ── Preview area ── */}
+                  <div className="relative h-44 bg-gradient-to-br from-white/[0.04] to-white/[0.01] border-b border-white/[0.06] overflow-hidden flex items-center justify-center">
+                    {/* Subtle grid */}
+                    <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:24px_24px]" />
+                    {/* Glow orb */}
+                    <div className="absolute w-40 h-40 rounded-full blur-3xl opacity-30 transition-opacity duration-500 group-hover:opacity-60"
+                      style={{ background: accent.glow.replace('0.25','0.8') }} />
+                    {/* App icon placeholder */}
+                    <div className="relative z-10 flex flex-col items-center gap-3">
+                      <div className="w-16 h-16 rounded-2xl bg-white/[0.06] border border-white/10 flex items-center justify-center shadow-lg">
+                        {project.ai
+                          ? <Bot size={28} className="text-purple-300" />
+                          : <ExternalLink size={28} className="text-cyan-300" />
+                        }
                       </div>
-                      <div className="flex items-start gap-2">
-                        <div className="flex-shrink-0 w-5 h-5 rounded-full bg-black/30 flex items-center justify-center mt-0.5">
-                          <CheckCircle size={11} className="text-green-300" />
-                        </div>
-                        <div>
-                          <p className="text-[10px] font-semibold text-green-200 uppercase tracking-wide">{t.projects.solutionLabel}</p>
-                          <p className="text-xs text-white/80 leading-relaxed">{project.solution}</p>
-                        </div>
-                      </div>
+                      <span className="text-[11px] text-gray-600 font-mono">{project.category}</span>
                     </div>
+                    {/* Featured badge */}
+                    {project.badge && (
+                      <div className="absolute top-3 left-3 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-amber-500/20 border border-amber-400/40">
+                        <span className="text-[10px] font-bold text-amber-300 tracking-wide">★ {project.badge}</span>
+                      </div>
+                    )}
+                    {/* AI badge */}
+                    {project.ai && (
+                      <div className="absolute top-3 right-3 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-purple-500/20 border border-purple-400/30">
+                        <Bot size={10} className="text-purple-300" />
+                        <span className="text-[10px] font-semibold text-purple-300 tracking-wide">AI</span>
+                      </div>
+                    )}
+                  </div>
+
+                  {/* ── Body ── */}
+                  <div className="flex flex-col flex-1 p-6 gap-4">
+
+                    {/* Title */}
+                    <h3 className="text-xl font-bold text-white leading-tight">{project.title}</h3>
+
+                    {/* Description */}
+                    <p className="text-sm text-gray-400 leading-relaxed flex-1">{project.description}</p>
 
                     {/* Tags */}
-                    <div className="flex flex-wrap gap-1.5 mb-4">
-                      {project.tags.map((tag) => (
-                        <span key={tag} className="px-2.5 py-1 text-xs rounded-full bg-black/20 text-white/90 backdrop-blur-sm border border-white/10">
+                    <div className="flex flex-wrap gap-1.5">
+                      {project.tags.map(tag => (
+                        <span key={tag} className={`px-2.5 py-0.5 text-[11px] font-medium rounded-full border ${accent.tag}`}>
                           {tag}
                         </span>
                       ))}
                     </div>
 
-                    {/* View link */}
-                    <span className="inline-flex items-center gap-2 text-white text-sm font-medium opacity-0 group-hover:opacity-100 transition-all duration-500">
-                      {t.projects.view}
-                      <ExternalLink size={14} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-                    </span>
+                    {/* Divider */}
+                    <div className="border-t border-white/[0.06]" />
+
+                    {/* ── Buttons ── */}
+                    <div className="flex flex-col gap-2">
+                      <div className="flex flex-wrap gap-2">
+                        {/* Live demo / multiple links */}
+                        {project.links.map((link, li) => (
+                          <a
+                            key={li}
+                            href={link.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={
+                              link.primary
+                                ? 'flex items-center gap-1.5 px-4 py-2 rounded-lg text-xs font-semibold text-white bg-gradient-to-r from-purple-600 to-purple-500 hover:from-purple-500 hover:to-purple-400 shadow-[0_0_20px_rgba(168,85,247,0.3)] hover:shadow-[0_0_28px_rgba(168,85,247,0.5)] transition-all duration-300 active:scale-95'
+                                : 'flex items-center gap-1.5 px-4 py-2 rounded-lg text-xs font-semibold text-gray-300 bg-white/[0.05] border border-white/10 hover:bg-white/[0.1] hover:border-white/20 hover:text-white transition-all duration-300 active:scale-95'
+                            }
+                            onClick={e => e.stopPropagation()}
+                          >
+                            <ExternalLink size={12} />
+                            {link.label}
+                          </a>
+                        ))}
+                        {/* GitHub button */}
+                        <a
+                          href={project.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center gap-1.5 px-4 py-2 rounded-lg text-xs font-semibold text-gray-400 bg-white/[0.04] border border-white/[0.08] hover:bg-white/[0.09] hover:text-white hover:border-white/20 transition-all duration-300 active:scale-95"
+                          onClick={e => e.stopPropagation()}
+                        >
+                          <Github size={12} />
+                          GitHub
+                        </a>
+                      </div>
+                      <p className="text-[11px] text-gray-600">{t.projects.tryApp}</p>
+                    </div>
+
                   </div>
                 </div>
-
-                {/* Shine effect on hover */}
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none overflow-hidden">
-                  <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/10 to-transparent" />
-                </div>
-              </a>
-            </ScrollReveal>
-          ))}
+              </ScrollReveal>
+            );
+          })}
         </div>
       </div>
     </section>
   );
 };
-
 
 // ============================================
 // WORK EXPERIENCE SECTION
