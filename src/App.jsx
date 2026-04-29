@@ -628,140 +628,120 @@ const HeroSection = ({ t, scrollY }) => {
   const { addRipple, RippleContainer } = useRipple();
 
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       <AnimatedBackground />
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#030303]" />
 
-      {/* AI pulse rings — decorative background animation */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0">
-        <div className="w-[500px] h-[500px] rounded-full border border-purple-500/10 animate-ping" style={{ animationDuration: '3s' }} />
-        <div className="absolute w-[350px] h-[350px] rounded-full border border-pink-500/10 animate-ping" style={{ animationDuration: '2.2s', animationDelay: '0.5s' }} />
-        <div className="absolute w-[200px] h-[200px] rounded-full border border-cyan-500/10 animate-ping" style={{ animationDuration: '1.8s', animationDelay: '1s' }} />
-      </div>
+      <div
+        className="relative z-10 w-full max-w-6xl mx-auto px-5 sm:px-8 py-24
+                   flex flex-col lg:flex-row items-center justify-center gap-16 lg:gap-24"
+        style={{ opacity: 1 - scrollY / 900 }}
+      >
 
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 py-20">
-        <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 items-center justify-center">
+        {/* ── Profile Card ── */}
+        <ScrollReveal delay={100}>
+          <div className="group relative flex-shrink-0">
+            {/* Ambient glow — only visible on hover */}
+            <div className="absolute inset-[-20px] rounded-full bg-gradient-to-br from-purple-600/20 via-transparent to-cyan-500/10 opacity-0 group-hover:opacity-100 blur-2xl transition-all duration-700 pointer-events-none" />
 
-          {/* ── Left: Text Content ── */}
-          <div
-            className="flex-1 max-w-xl text-center lg:text-left"
-            style={{ transform: `translateY(${scrollY * 0.15}px)`, opacity: 1 - scrollY / 1200 }}
-          >
-            <ScrollReveal delay={0}>
-              <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/[0.05] border border-white/[0.1] mb-8">
-                <Sparkles size={16} className="text-purple-400" />
-                <span className="text-sm text-gray-300">{t.hero.greeting}</span>
-              </div>
-            </ScrollReveal>
+            {/* Avatar ring */}
+            <div className="relative w-48 h-48 sm:w-56 sm:h-56 rounded-full
+                            ring-1 ring-white/10
+                            shadow-[0_0_0_8px_rgba(255,255,255,0.03)]
+                            transition-all duration-500
+                            group-hover:scale-[1.04]
+                            group-hover:shadow-[0_0_40px_rgba(139,92,246,0.25),0_0_0_8px_rgba(255,255,255,0.04)]
+                            overflow-hidden bg-[#0c0c14]">
+              <img
+                src="/portfolio-website/images/profile-transparent.png"
+                alt="Zawe Zaw Htet"
+                className="w-full h-full object-cover object-top scale-110"
+                draggable="false"
+              />
+            </div>
 
-            <ScrollReveal delay={200}>
-              <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold mb-6 tracking-tight whitespace-nowrap">
-                <span className="bg-gradient-to-r from-white via-purple-200 to-white bg-clip-text text-transparent">{t.hero.name}</span>
-              </h1>
-            </ScrollReveal>
-
-            <ScrollReveal delay={400}>
-              <p className="text-xl sm:text-2xl text-gray-400 font-light mb-4">{t.hero.role}</p>
-            </ScrollReveal>
-
-            <ScrollReveal delay={500}>
-              <p className="text-base sm:text-lg text-gray-500 mb-10">{t.hero.description}</p>
-            </ScrollReveal>
-
-            <ScrollReveal delay={700}>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                <button
-                  onClick={(e) => { addRipple(e); document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' }); }}
-                  className="group relative inline-flex items-center justify-center gap-3 px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full text-white font-medium text-lg overflow-hidden transition-all hover:shadow-[0_0_40px_rgba(168,85,247,0.5)] active:scale-95 hover:scale-105"
-                >
-                  <RippleContainer />
-                  <span className="relative z-10">{t.hero.cta}</span>
-                  <ArrowRight size={20} className="relative z-10 group-hover:translate-x-2 transition-transform" />
-                </button>
-                <a
-                  href="https://github.com/Z200-WEB"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 px-7 py-4 rounded-full border border-white/20 text-white font-medium text-base bg-white/[0.04] backdrop-blur-sm hover:bg-white/[0.10] hover:border-white/40 transition-all hover:scale-105 active:scale-95"
-                >
-                  <Github size={18} />
-                  GitHub
-                </a>
-              </div>
-            </ScrollReveal>
+            {/* Status dot */}
+            <span className="absolute bottom-3 right-3 w-3.5 h-3.5 rounded-full bg-emerald-400
+                             ring-2 ring-[#030303] shadow-[0_0_8px_rgba(52,211,153,0.6)]
+                             animate-pulse" />
           </div>
+        </ScrollReveal>
 
-          {/* ── Right: Modern Profile Card ── */}
-          <ScrollReveal delay={300}>
-            <div className="flex justify-center items-center">
-              {/* Outer card */}
-              <div className="relative group bg-black rounded-2xl shadow-md p-6 flex flex-col items-center justify-center text-center w-72 sm:w-80 transition-all duration-500 hover:shadow-[0_0_60px_rgba(168,85,247,0.35)]">
+        {/* ── Text ── */}
+        <div className="flex flex-col items-center lg:items-start text-center lg:text-left max-w-lg">
 
-                {/* Animated gradient border */}
-                <div className="absolute -inset-[1.5px] rounded-2xl bg-gradient-to-br from-purple-500 via-pink-500 to-cyan-500 opacity-40 group-hover:opacity-80 transition-opacity duration-500 blur-[1px] -z-10" />
-                <div className="absolute inset-0 rounded-2xl bg-black -z-10" />
-
-                {/* Glowing ring behind avatar */}
-                <div className="relative mb-5">
-                  <div className="absolute inset-0 rounded-full bg-gradient-to-br from-purple-500 via-pink-500 to-cyan-400 blur-md opacity-60 group-hover:opacity-90 transition-opacity duration-500 scale-110" />
-                  {/* Circular avatar */}
-                  <div className="relative w-32 h-32 sm:w-36 sm:h-36 rounded-full overflow-hidden border-[3px] border-white/20 shadow-lg transition-transform duration-500 group-hover:scale-105 bg-gradient-to-br from-purple-900/60 to-black">
-                    <img
-                      src="/portfolio-website/images/profile-transparent.png"
-                      alt="Zawe Zaw Htet"
-                      className="w-full h-full object-cover object-top"
-                    />
-                  </div>
-                  {/* Online dot */}
-                  <div className="absolute bottom-1 right-1 w-4 h-4 rounded-full bg-green-400 border-2 border-black animate-pulse shadow-md" />
-                </div>
-
-                {/* Name */}
-                <h2 className="text-white font-bold text-xl sm:text-2xl mb-1 tracking-tight">{t.hero.name}</h2>
-
-                {/* Role badge */}
-                <span className="inline-block px-3 py-1 rounded-full bg-purple-500/20 border border-purple-400/30 text-purple-300 text-xs font-medium mb-3">{t.hero.role}</span>
-
-                {/* Bio */}
-                <p className="text-gray-400 text-sm leading-relaxed mb-5 max-w-[220px]">
-                  Builds AI-powered apps & full-stack systems. Deploys on Vercel & Render. Based in Japan.
-                </p>
-
-                {/* Skill chips */}
-                <div className="flex flex-wrap gap-2 justify-center mb-5">
-                  {['AI / RAG', 'React', 'Full Stack', 'Deployment'].map(skill => (
-                    <span key={skill} className="text-xs px-2.5 py-1 rounded-full bg-white/[0.07] border border-white/[0.10] text-gray-300">{skill}</span>
-                  ))}
-                </div>
-
-                {/* GitHub button */}
-                <a
-                  href="https://github.com/Z200-WEB"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-white/[0.06] border border-white/[0.12] text-white text-sm font-medium hover:bg-white/[0.14] hover:border-purple-400/50 transition-all duration-300 hover:scale-105 active:scale-95"
-                >
-                  <Github size={16} />
-                  View GitHub Profile
-                </a>
-
-                {/* Open to Work ribbon */}
-                <div className="absolute -top-3 -right-3 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full px-3 py-1.5 text-white text-xs font-semibold shadow-lg border border-white/10">
-                  Open to Work
-                </div>
-              </div>
+          <ScrollReveal delay={0}>
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full
+                            bg-white/[0.05] border border-white/[0.07]
+                            text-xs text-gray-400 tracking-widest uppercase mb-6 select-none">
+              <Sparkles size={11} className="text-purple-400" />
+              Hello, I am
             </div>
           </ScrollReveal>
 
+          <ScrollReveal delay={120}>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-semibold tracking-tight mb-3
+                           bg-gradient-to-br from-white via-white/90 to-white/50
+                           bg-clip-text text-transparent whitespace-nowrap leading-tight">
+              Zawe Zaw Htet
+            </h1>
+          </ScrollReveal>
+
+          <ScrollReveal delay={220}>
+            <p className="text-sm sm:text-base font-medium text-purple-300/80 tracking-wide mb-6">
+              AI / Full-Stack Developer (Student)
+            </p>
+          </ScrollReveal>
+
+          <ScrollReveal delay={320}>
+            <p className="text-sm sm:text-base text-gray-500 leading-relaxed mb-10 max-w-md">
+              Building AI-powered products with React, TypeScript, and LLMs.
+              Focused on real-world problem solving.
+            </p>
+          </ScrollReveal>
+
+          <ScrollReveal delay={440}>
+            <div className="flex flex-wrap gap-3 justify-center lg:justify-start">
+              {/* Primary CTA */}
+              <button
+                onClick={(e) => { addRipple(e); document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' }); }}
+                className="group/btn relative inline-flex items-center gap-2.5
+                           px-7 py-3 rounded-full overflow-hidden
+                           bg-white text-black text-sm font-semibold
+                           transition-all duration-300
+                           hover:scale-[1.03] hover:shadow-[0_0_30px_rgba(255,255,255,0.18)]
+                           active:scale-[0.97]"
+              >
+                <RippleContainer />
+                <span className="relative z-10">View My Work</span>
+                <ArrowRight size={16} className="relative z-10 group-hover/btn:translate-x-1 transition-transform duration-200" />
+              </button>
+
+              {/* Ghost GitHub */}
+              <a
+                href="https://github.com/Z200-WEB"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2.5 px-7 py-3 rounded-full
+                           border border-white/[0.12] text-white/70 text-sm font-medium
+                           bg-white/[0.03] backdrop-blur-sm
+                           transition-all duration-300
+                           hover:text-white hover:border-white/25 hover:bg-white/[0.07]
+                           hover:scale-[1.03] active:scale-[0.97]"
+              >
+                <Github size={15} />
+                GitHub
+              </a>
+            </div>
+          </ScrollReveal>
         </div>
+
       </div>
 
-      {/* Scroll indicator */}
-      <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3">
-        <span className="text-xs text-gray-500">{t.hero.scroll}</span>
-        <div className="w-6 h-10 border-2 border-white/20 rounded-full flex justify-center pt-2">
-          <div className="w-1 h-2 bg-purple-400 rounded-full animate-scroll-down" />
-        </div>
+      {/* Scroll hint */}
+      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2.5 opacity-40">
+        <span className="text-[11px] tracking-[0.18em] text-gray-500 uppercase">{t.hero.scroll}</span>
+        <div className="w-[1px] h-8 bg-gradient-to-b from-white/40 to-transparent" />
       </div>
     </section>
   );
