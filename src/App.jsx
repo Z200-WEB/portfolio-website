@@ -4,7 +4,7 @@ import { Github, Linkedin, Mail, ExternalLink, Globe, MapPin, Sparkles, ArrowRig
 
 const translations = {
   en: {
-    nav: { work: 'Work', about: 'About', contact: 'Contact' },h
+    nav: { work: 'Work', about: 'About', contact: 'Contact' },
     hero: {
       greeting: 'Hello, I am',
       name: 'ZAWE ZAW HTET',
