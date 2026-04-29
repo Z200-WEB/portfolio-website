@@ -632,11 +632,21 @@ const HeroSection = ({ t, scrollY }) => {
       <AnimatedBackground />
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#030303]" />
 
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 py-20">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+      {/* AI pulse rings — decorative background animation */}
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0">
+        <div className="w-[500px] h-[500px] rounded-full border border-purple-500/10 animate-ping" style={{ animationDuration: '3s' }} />
+        <div className="absolute w-[350px] h-[350px] rounded-full border border-pink-500/10 animate-ping" style={{ animationDuration: '2.2s', animationDelay: '0.5s' }} />
+        <div className="absolute w-[200px] h-[200px] rounded-full border border-cyan-500/10 animate-ping" style={{ animationDuration: '1.8s', animationDelay: '1s' }} />
+      </div>
 
-          {/* Text Content */}
-          <div style={{ transform: `translateY(${scrollY * 0.15}px)`, opacity: 1 - scrollY / 1200 }}>
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 py-20">
+        <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 items-center justify-center">
+
+          {/* ── Left: Text Content ── */}
+          <div
+            className="flex-1 max-w-xl text-center lg:text-left"
+            style={{ transform: `translateY(${scrollY * 0.15}px)`, opacity: 1 - scrollY / 1200 }}
+          >
             <ScrollReveal delay={0}>
               <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/[0.05] border border-white/[0.1] mb-8">
                 <Sparkles size={16} className="text-purple-400" />
@@ -651,53 +661,91 @@ const HeroSection = ({ t, scrollY }) => {
             </ScrollReveal>
 
             <ScrollReveal delay={400}>
-              <p className="text-xl sm:text-2xl md:text-3xl text-gray-400 font-light mb-6">{t.hero.role}</p>
+              <p className="text-xl sm:text-2xl text-gray-400 font-light mb-4">{t.hero.role}</p>
             </ScrollReveal>
 
-            <ScrollReveal delay={600}>
-              <p className="text-base sm:text-lg text-gray-500 max-w-xl mb-10">{t.hero.description}</p>
+            <ScrollReveal delay={500}>
+              <p className="text-base sm:text-lg text-gray-500 mb-10">{t.hero.description}</p>
             </ScrollReveal>
 
-            <ScrollReveal delay={800}>
-              <button
-                onClick={(e) => { addRipple(e); document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' }); }}
-                className="group relative inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full text-white font-medium text-lg overflow-hidden transition-all hover:shadow-[0_0_40px_rgba(168,85,247,0.5)] active:scale-95 hover:scale-105"
-              >
-                <RippleContainer />
-                <span className="relative z-10">{t.hero.cta}</span>
-                <ArrowRight size={20} className="relative z-10 group-hover:translate-x-2 transition-transform" />
-              </button>
+            <ScrollReveal delay={700}>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                <button
+                  onClick={(e) => { addRipple(e); document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' }); }}
+                  className="group relative inline-flex items-center justify-center gap-3 px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full text-white font-medium text-lg overflow-hidden transition-all hover:shadow-[0_0_40px_rgba(168,85,247,0.5)] active:scale-95 hover:scale-105"
+                >
+                  <RippleContainer />
+                  <span className="relative z-10">{t.hero.cta}</span>
+                  <ArrowRight size={20} className="relative z-10 group-hover:translate-x-2 transition-transform" />
+                </button>
+                <a
+                  href="https://github.com/Z200-WEB"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 px-7 py-4 rounded-full border border-white/20 text-white font-medium text-base bg-white/[0.04] backdrop-blur-sm hover:bg-white/[0.10] hover:border-white/40 transition-all hover:scale-105 active:scale-95"
+                >
+                  <Github size={18} />
+                  GitHub
+                </a>
+              </div>
             </ScrollReveal>
           </div>
 
-          {/* Photo Card — visible on all screens */}
-          <ScrollReveal delay={400}>
-            <div className="flex justify-center lg:justify-end items-center">
-              <div className="relative group">
-                {/* Outer glow */}
-                <div className="absolute -inset-[3px] bg-gradient-to-br from-purple-600 via-pink-500 to-cyan-500 rounded-[28px] blur-sm opacity-50 group-hover:opacity-80 transition-opacity duration-500" />
-                {/* Main card */}
-                <div className="relative bg-[#0d0d14] rounded-[26px] p-1.5 overflow-hidden shadow-2xl">
-                  <img
-                    src="/portfolio-website/images/profile.jpg"
-                    alt="Zawe Zaw Htet"
-                    className="w-64 h-80 sm:w-72 sm:h-88 lg:w-80 lg:h-96 object-cover object-top rounded-[20px] block"
-                  />
-                  {/* Info bar */}
-                  <div className="absolute bottom-4 left-4 right-4 bg-black/70 backdrop-blur-md rounded-2xl px-4 py-3 border border-white/[0.08]">
-                    <div className="flex items-center justify-between gap-2">
-                      <div className="min-w-0">
-                        <p className="text-white font-semibold text-sm truncate">Zawe Zaw Htet</p>
-                        <p className="text-purple-300 text-xs">{t.hero.role}</p>
-                      </div>
-                      <div className="flex items-center gap-1.5 flex-shrink-0">
-                        <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-                        <span className="text-green-400 text-xs whitespace-nowrap">Available</span>
-                      </div>
-                    </div>
+          {/* ── Right: Modern Profile Card ── */}
+          <ScrollReveal delay={300}>
+            <div className="flex justify-center items-center">
+              {/* Outer card */}
+              <div className="relative group bg-black rounded-2xl shadow-md p-6 flex flex-col items-center justify-center text-center w-72 sm:w-80 transition-all duration-500 hover:shadow-[0_0_60px_rgba(168,85,247,0.35)]">
+
+                {/* Animated gradient border */}
+                <div className="absolute -inset-[1.5px] rounded-2xl bg-gradient-to-br from-purple-500 via-pink-500 to-cyan-500 opacity-40 group-hover:opacity-80 transition-opacity duration-500 blur-[1px] -z-10" />
+                <div className="absolute inset-0 rounded-2xl bg-black -z-10" />
+
+                {/* Glowing ring behind avatar */}
+                <div className="relative mb-5">
+                  <div className="absolute inset-0 rounded-full bg-gradient-to-br from-purple-500 via-pink-500 to-cyan-400 blur-md opacity-60 group-hover:opacity-90 transition-opacity duration-500 scale-110" />
+                  {/* Circular avatar */}
+                  <div className="relative w-32 h-32 sm:w-36 sm:h-36 rounded-full overflow-hidden border-[3px] border-white/20 shadow-lg transition-transform duration-500 group-hover:scale-105 bg-gradient-to-br from-purple-900/60 to-black">
+                    <img
+                      src="/portfolio-website/images/profile-transparent.png"
+                      alt="Zawe Zaw Htet"
+                      className="w-full h-full object-cover object-top"
+                    />
                   </div>
+                  {/* Online dot */}
+                  <div className="absolute bottom-1 right-1 w-4 h-4 rounded-full bg-green-400 border-2 border-black animate-pulse shadow-md" />
                 </div>
-                {/* Open to Work badge */}
+
+                {/* Name */}
+                <h2 className="text-white font-bold text-xl sm:text-2xl mb-1 tracking-tight">{t.hero.name}</h2>
+
+                {/* Role badge */}
+                <span className="inline-block px-3 py-1 rounded-full bg-purple-500/20 border border-purple-400/30 text-purple-300 text-xs font-medium mb-3">{t.hero.role}</span>
+
+                {/* Bio */}
+                <p className="text-gray-400 text-sm leading-relaxed mb-5 max-w-[220px]">
+                  Builds AI-powered apps & full-stack systems. Deploys on Vercel & Render. Based in Japan.
+                </p>
+
+                {/* Skill chips */}
+                <div className="flex flex-wrap gap-2 justify-center mb-5">
+                  {['AI / RAG', 'React', 'Full Stack', 'Deployment'].map(skill => (
+                    <span key={skill} className="text-xs px-2.5 py-1 rounded-full bg-white/[0.07] border border-white/[0.10] text-gray-300">{skill}</span>
+                  ))}
+                </div>
+
+                {/* GitHub button */}
+                <a
+                  href="https://github.com/Z200-WEB"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-white/[0.06] border border-white/[0.12] text-white text-sm font-medium hover:bg-white/[0.14] hover:border-purple-400/50 transition-all duration-300 hover:scale-105 active:scale-95"
+                >
+                  <Github size={16} />
+                  View GitHub Profile
+                </a>
+
+                {/* Open to Work ribbon */}
                 <div className="absolute -top-3 -right-3 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full px-3 py-1.5 text-white text-xs font-semibold shadow-lg border border-white/10">
                   Open to Work
                 </div>
