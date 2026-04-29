@@ -633,7 +633,8 @@ const HeroSection = ({ t, scrollY }) => {
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#030303]" />
 
       <div className="relative z-10 w-full max-w-7xl mx-auto px-6 py-20">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+
           {/* Text Content */}
           <div style={{ transform: `translateY(${scrollY * 0.15}px)`, opacity: 1 - scrollY / 1200 }}>
             <ScrollReveal delay={0}>
@@ -669,40 +670,41 @@ const HeroSection = ({ t, scrollY }) => {
             </ScrollReveal>
           </div>
 
-          {/* Photo Card */}
-          <ScrollReveal delay={300}>
-            <div className="hidden lg:flex justify-center items-center">
+          {/* Photo Card — visible on all screens */}
+          <ScrollReveal delay={400}>
+            <div className="flex justify-center lg:justify-end items-center">
               <div className="relative group">
-                {/* Glow effect */}
-                <div className="absolute -inset-1 bg-gradient-to-r from-purple-600 via-pink-600 to-cyan-500 rounded-3xl blur-lg opacity-40 group-hover:opacity-70 transition-opacity duration-500" />
-                {/* Card */}
-                <div className="relative bg-gradient-to-br from-white/[0.08] to-white/[0.03] backdrop-blur-xl border border-white/[0.12] rounded-3xl p-2 overflow-hidden">
+                {/* Outer glow */}
+                <div className="absolute -inset-[3px] bg-gradient-to-br from-purple-600 via-pink-500 to-cyan-500 rounded-[28px] blur-sm opacity-50 group-hover:opacity-80 transition-opacity duration-500" />
+                {/* Main card */}
+                <div className="relative bg-[#0d0d14] rounded-[26px] p-1.5 overflow-hidden shadow-2xl">
                   <img
                     src="/portfolio-website/images/profile.jpg"
                     alt="Zawe Zaw Htet"
-                    className="w-80 h-96 object-cover object-top rounded-2xl"
+                    className="w-64 h-80 sm:w-72 sm:h-88 lg:w-80 lg:h-96 object-cover object-top rounded-[20px] block"
                   />
-                  {/* Overlay info bar */}
-                  <div className="absolute bottom-4 left-4 right-4 bg-black/60 backdrop-blur-md rounded-2xl px-4 py-3 border border-white/10">
-                    <div className="flex items-center justify-between">
-                      <div>
-                        <p className="text-white font-semibold text-sm">Zawe Zaw Htet</p>
+                  {/* Info bar */}
+                  <div className="absolute bottom-4 left-4 right-4 bg-black/70 backdrop-blur-md rounded-2xl px-4 py-3 border border-white/[0.08]">
+                    <div className="flex items-center justify-between gap-2">
+                      <div className="min-w-0">
+                        <p className="text-white font-semibold text-sm truncate">Zawe Zaw Htet</p>
                         <p className="text-purple-300 text-xs">{t.hero.role}</p>
                       </div>
-                      <div className="flex items-center gap-1.5">
+                      <div className="flex items-center gap-1.5 flex-shrink-0">
                         <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-                        <span className="text-green-400 text-xs">Available</span>
+                        <span className="text-green-400 text-xs whitespace-nowrap">Available</span>
                       </div>
                     </div>
                   </div>
                 </div>
-                {/* Floating badge top right */}
-                <div className="absolute -top-3 -right-3 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full px-3 py-1.5 text-white text-xs font-medium shadow-lg">
+                {/* Open to Work badge */}
+                <div className="absolute -top-3 -right-3 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full px-3 py-1.5 text-white text-xs font-semibold shadow-lg border border-white/10">
                   Open to Work
                 </div>
               </div>
             </div>
           </ScrollReveal>
+
         </div>
       </div>
 
