@@ -633,7 +633,7 @@ const HeroSection = ({ t, scrollY }) => {
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#030303]" />
 
       <div
-        className="relative z-10 w-full max-w-6xl mx-auto px-5 sm:px-8 py-24
+        className="relative z-10 w-full max-w-6xl mx-auto px-5 sm:px-8 pt-24 pb-40
                    flex flex-col lg:flex-row items-center justify-center gap-16 lg:gap-24"
         style={{ opacity: 1 - scrollY / 900 }}
       >
@@ -739,7 +739,7 @@ const HeroSection = ({ t, scrollY }) => {
       </div>
 
       {/* Scroll hint */}
-      <div className="absolute bottom-16 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2.5 opacity-40">
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2.5 opacity-40">
         <span className="text-[11px] tracking-[0.18em] text-gray-500 uppercase">{t.hero.scroll}</span>
         <div className="w-[1px] h-8 bg-gradient-to-b from-white/40 to-transparent" />
       </div>
